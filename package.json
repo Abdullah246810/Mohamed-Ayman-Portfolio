@@ -1,5 +1,5 @@
 {
-  "name": "medical-booking-app",
+  "name": "my-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,10 +14,12 @@
     "@supabase/supabase-js": "^2.116.0",
     "@tailwindcss/vite": "^4.3.3",
     "axios": "^1.20.0",
+    "lucide-react": "^1.48.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.0.0",
     "react-router-dom": "^7.0.0",
+    "scheduler": "^0.28.0",
     "tailwindcss": "^4.3.3",
     "zustand": "^5.0.0"
   },
