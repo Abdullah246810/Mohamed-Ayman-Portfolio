@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Portfolio() {
-  // تم تغيير الخط إلى font-serif وتكبير الحجم في الشاشات الكبيرة
   const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-lg tracking-widest";
 
   return (
@@ -14,7 +13,6 @@ export default function Portfolio() {
             MOHAMED<span className="text-[#D4AF37]">.ENG</span>
           </a>
           
-          {/* تم تفعيل التفاف العناصر (flex-wrap) لإلغاء التمرير في الموبايل */}
           <div className="flex flex-wrap gap-x-5 gap-y-3 md:gap-10 w-full md:w-auto justify-center text-center">
             <a href="#about" className={navClass}>About</a>
             <a href="#skills" className={navClass}>Skills</a>
@@ -28,23 +26,27 @@ export default function Portfolio() {
       {/* Main Content (Single Page Scroll) */}
       <main className="pt-36 pb-20">
         
-        {/* ================= SECTION 1: ABOUT (HERO) ================= */}
-        <section id="about" className="px-8 md:px-16 max-w-7xl mx-auto min-h-[85vh] flex flex-col justify-center pb-24">
-          <div className="max-w-4xl">
+        {/* ================= SECTION 1: ABOUT (HERO WITH IMAGE) ================= */}
+        <section id="about" className="px-8 md:px-16 max-w-7xl mx-auto min-h-[85vh] flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16 pb-24">
+          <div className="flex-1 max-w-3xl">
+            {/* Name */}
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-3 tracking-tight">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
             
+            {/* Job Title */}
             <h2 className="text-xl md:text-2xl text-gray-400 mb-6 font-medium">
               Senior Civil Engineer (Technical Office / BIM)
             </h2>
             
-            <p className="text-gray-400 max-w-2xl text-lg leading-relaxed mb-8">
+            {/* Small Description */}
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">
               Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. 
               Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination. 
               Skilled in modern engineering software and strict code compliance.
             </p>
 
+            {/* Badges (Place, Gmail, Tel) */}
             <div className="flex flex-wrap gap-4 mb-10">
               <div className="flex items-center gap-2 bg-[#131313] border border-gray-800 rounded-lg px-4 py-2 text-sm text-gray-300">
                 <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -60,6 +62,7 @@ export default function Portfolio() {
               </a>
             </div>
 
+            {/* Buttons */}
             <div className="flex gap-4">
               <a href="#projects" className="bg-[#D4AF37] hover:bg-[#b5952f] text-black px-6 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                 View Projects
@@ -71,6 +74,22 @@ export default function Portfolio() {
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
+            </div>
+          </div>
+          
+          {/* Profile Image Wrapper */}
+          <div className="flex-shrink-0 flex justify-center lg:justify-end lg:ml-auto w-full lg:w-auto mb-12 lg:mb-0">
+            {/* قمنا بتصغير الأبعاد هنا لتكون w-52 في الموبايل وتصل إلى w-72 في اللابتوب */}
+            <div className="relative w-52 h-52 sm:w-60 sm:h-60 lg:w-72 lg:h-72 rounded-full p-2 border-2 border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.15)] group">
+              <img 
+                src="/profile.png" 
+                alt="Eng Mohamed Ayman" 
+                className="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-500"
+                onError={(e) => {
+                  e.target.onerror = null; 
+                  e.target.src = "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
+                }}
+              />
             </div>
           </div>
         </section>
