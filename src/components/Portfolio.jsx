@@ -13,7 +13,7 @@ export default function Portfolio() {
           }
         });
       },
-      { rootMargin: "-20% 0px -70% 0px" } 
+      { rootMargin: "-20% 0px -70% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -22,18 +22,17 @@ export default function Portfolio() {
 
   const getNavClass = (sectionId) => {
     const isActive = activeSection === sectionId;
-    return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${
-      isActive 
-        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]" 
+    return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${isActive
+        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]"
         : "text-gray-400 hover:text-gray-200"
-    }`;
+      }`;
   };
 
   const sectionHeaderClass = "flex items-center justify-center md:justify-start gap-3 mb-8 border border-[#D4AF37]/30 bg-gradient-to-r from-[#0a0a0a] via-[#D4AF37]/15 to-[#0a0a0a] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-[0_4px_20px_rgba(212,175,55,0.15)]";
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
-      
+
       {/* Floating Pill Navbar */}
       <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-2 pointer-events-none">
         <nav className="pointer-events-auto bg-[#111111]/90 backdrop-blur-2xl border border-white/10 rounded-full px-4 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-nowrap justify-center items-center gap-3 sm:gap-5 md:gap-8 w-fit max-w-full">
@@ -46,41 +45,45 @@ export default function Portfolio() {
       </div>
 
       <main className="pt-20 md:pt-28 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
-        
+
         {/* ================= SECTION 1: ABOUT ================= */}
         <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
-          
+
           {/* Profile Image */}
-          <div className="flex-shrink-0 w-36 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
-            <div className="relative w-full aspect-square p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
-              <img 
-                src="/mohamed.png" 
-                alt="Eng Mohamed Ayman" 
-                className="w-full h-full object-cover rounded-full"
+          <div className="flex-shrink-0 w-48 sm:w-56 lg:w-72 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
+
+            <div className="relative w-full aspect-[3/4] p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
+
+              <img
+                src="/mohamed.png"
+                alt="Eng Mohamed Ayman"
+                className="w-full h-full object-contain rounded-xl"
                 onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://via.placeholder.com/400x533/131313/D4AF37?text=Eng+Mohamed";
                 }}
               />
-            </div>
-          </div>
 
+            </div>
+
+          </div>
           <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0">
-            
+
             <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
-            
+
             <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit mx-auto lg:mx-0">
               <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug">
                 <span className="block text-lg md:text-2xl mb-1">Senior Civil Engineer</span>
                 <span className="block text-gray-300 font-medium text-xs md:text-sm">(Technical Office / BIM)</span>
               </h2>
             </div>
-            
+
             <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl px-2 lg:px-0">
-              Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. 
-              Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination. 
+              Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution.
+              Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mb-8">
@@ -103,10 +106,10 @@ export default function Portfolio() {
                 View Projects
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </a>
-              
+
               <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#1a1a1a] hover:bg-[#222] text-[#D4AF37] w-11 h-11 md:w-12 md:h-12 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all flex-shrink-0">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
             </div>
@@ -122,7 +125,7 @@ export default function Portfolio() {
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
           </div>
           <p className="text-gray-400 mb-8 text-center md:text-left text-sm md:text-base">Tools, competencies, and languages I specialize in.</p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all">
               <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
@@ -168,19 +171,19 @@ export default function Portfolio() {
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Featured Projects</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            
+
             {/* Project 1 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
               {/* تصغير ارتفاع الصورة h-32 في الموبايل و h-40 في الشاشات الأكبر وإلغاء الزووم */}
               <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                <img 
-                  src="/newgiza.jpg" 
-                  alt="NewGiza" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/newgiza.jpg"
+                  alt="NewGiza"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.onerror = null; 
+                    e.target.onerror = null;
                     e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=NewGiza+Project";
                   }}
                 />
@@ -202,16 +205,16 @@ export default function Portfolio() {
                 </ul>
               </div>
             </div>
-            
+
             {/* Project 2 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
               <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                <img 
-                  src="/bim-project.jpg" 
-                  alt="BIM Coordination" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/bim-project.jpg"
+                  alt="BIM Coordination"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.onerror = null; 
+                    e.target.onerror = null;
                     e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=BIM+Coordination";
                   }}
                 />
@@ -233,16 +236,16 @@ export default function Portfolio() {
                 </ul>
               </div>
             </div>
-            
+
             {/* Project 3 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
               <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                <img 
-                  src="/hotel-project.jpg" 
-                  alt="Hotel" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/hotel-project.jpg"
+                  alt="Hotel"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.onerror = null; 
+                    e.target.onerror = null;
                     e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=EL-HASSOUN+HOTEL";
                   }}
                 />
@@ -268,12 +271,12 @@ export default function Portfolio() {
             {/* Project 4 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
               <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                <img 
-                  src="/palm-hills.jpg" 
-                  alt="Palm Hills" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/palm-hills.jpg"
+                  alt="Palm Hills"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.onerror = null; 
+                    e.target.onerror = null;
                     e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=PALM+HILLS";
                   }}
                 />
@@ -305,7 +308,7 @@ export default function Portfolio() {
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14v6" /></svg>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Education & Training</h2>
           </div>
-          
+
           <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 mb-8 border-l-4 border-l-[#D4AF37]">
             <h3 className="text-xl text-white font-bold mb-1">Bachelor of Civil Engineering</h3>
             <p className="text-[#D4AF37] text-xs sm:text-sm mb-4">Fayoum University | Graduated May 2020</p>
@@ -319,7 +322,7 @@ export default function Portfolio() {
             <svg className="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             <h3 className="text-lg md:text-xl text-white font-bold">Certificates & Courses</h3>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors">
               <svg className="w-6 h-6 text-[#D4AF37] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
