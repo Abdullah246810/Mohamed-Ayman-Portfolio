@@ -29,6 +29,9 @@ export default function Portfolio() {
     }`;
   };
 
+  // كلاس موحد لتصميم العناوين الفخمة لتسهيل الكود
+  const sectionHeaderClass = "flex items-center justify-center md:justify-start gap-3 mb-8 border border-[#D4AF37]/30 bg-gradient-to-r from-[#0a0a0a] via-[#D4AF37]/15 to-[#0a0a0a] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-[0_4px_20px_rgba(212,175,55,0.15)]";
+
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
@@ -112,8 +115,8 @@ export default function Portfolio() {
 
         {/* ================= SECTION 2: SKILLS ================= */}
         <section id="skills" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          {/* Section Header with Border and Centered on Mobile */}
-          <div className="flex items-center justify-center md:justify-start gap-3 mb-6 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+          {/* Section Header with Gradient */}
+          <div className={sectionHeaderClass}>
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
@@ -162,8 +165,8 @@ export default function Portfolio() {
 
         {/* ================= SECTION 3: PROJECTS ================= */}
         <section id="projects" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl">
-          {/* Section Header with Border and Centered on Mobile */}
-          <div className="flex items-center justify-center md:justify-start gap-3 mb-10 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+          {/* Section Header with Gradient */}
+          <div className={sectionHeaderClass}>
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Featured Projects</h2>
           </div>
@@ -241,8 +244,8 @@ export default function Portfolio() {
 
         {/* ================= SECTION 4: EDUCATION & TRAINING ================= */}
         <section id="education" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          {/* Section Header with Border and Centered on Mobile */}
-          <div className="flex items-center justify-center md:justify-start gap-3 mb-10 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+          {/* Section Header with Gradient */}
+          <div className={sectionHeaderClass}>
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14v6" /></svg>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Education & Training</h2>
           </div>
@@ -283,8 +286,8 @@ export default function Portfolio() {
         {/* ================= SECTION 5: CONTACT ================= */}
         <section id="contact" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-3xl mx-auto text-center">
-            {/* Section Header with Border and Always Centered */}
-            <div className="flex items-center justify-center gap-3 mb-6 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto shadow-lg shadow-black/20">
+            {/* Section Header with Gradient */}
+            <div className={sectionHeaderClass}>
               <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Get In Touch</h2>
             </div>
