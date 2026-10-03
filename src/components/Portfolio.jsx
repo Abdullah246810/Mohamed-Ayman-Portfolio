@@ -50,18 +50,18 @@ export default function Portfolio() {
         <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
 
           {/* Profile Image */}
-          <div className="flex-shrink-0 w-48 sm:w-56 lg:w-72 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
+          <div className="flex-shrink-0 w-44 sm:w-56 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
 
-            <div className="relative w-full aspect-[3/4] p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
+            <div className="relative w-full aspect-square p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#111111] overflow-hidden">
 
               <img
                 src="/mohamed.png"
                 alt="Eng Mohamed Ayman"
-                className="w-full h-full object-contain rounded-xl"
+                className="w-full h-full object-contain rounded-full"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    "https://via.placeholder.com/400x533/131313/D4AF37?text=Eng+Mohamed";
+                    "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
                 }}
               />
 
