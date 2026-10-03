@@ -84,7 +84,7 @@ export default function Portfolio() {
               <img 
                 src="/mohamed.png"
                 alt="Eng Mohamed Ayman" 
-                className="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover rounded-full filter"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.src = "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
