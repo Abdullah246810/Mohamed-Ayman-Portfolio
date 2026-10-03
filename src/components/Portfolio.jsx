@@ -4,10 +4,11 @@ export default function Portfolio() {
   const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-lg tracking-widest";
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black">
+    // خلفية الموقع الأساسية داكنة جداً لإبراز الـ Containers
+    <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
       {/* Navbar */}
-      <nav className="fixed w-full top-0 z-50 border-b border-white/5 bg-[#0a0a0a]/90 backdrop-blur-md">
+      <nav className="fixed w-full top-0 z-50 border-b border-white/5 bg-[#050505]/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 md:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           <a href="#about" className="font-bold text-2xl tracking-wider text-white uppercase font-sans">
             MOHAMED<span className="text-[#D4AF37]">.ENG</span>
@@ -23,17 +24,16 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Main Content (Single Page Scroll) */}
-      <main className="pt-36 pb-20">
+      {/* Main Content */}
+      <main className="pt-36 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
         
         {/* ================= SECTION 1: ABOUT (HERO WITH IMAGE) ================= */}
-        {/* تم تغيير flex-col-reverse إلى flex-col لضبط الترتيب في الموبايل */}
-        <section id="about" className="px-8 md:px-16 max-w-7xl mx-auto min-h-[85vh] flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 pb-24">
+        {/* Container احترافي بلون أفتح قليلاً */}
+        <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
           
-          {/* Profile Image - تظهر في الأعلى في الموبايل وعلى اليمين في اللابتوب */}
-          <div className="flex-shrink-0 w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2">
-            <div className="relative w-full p-2 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.15)] bg-[#131313]">
-              {/* شيلنا الـ hover والـ grayscale وخلينا الصورة بحجمها الأصلي */}
+          {/* Profile Image - نصف الحجم في الموبايل (w-48) وحجم مناسب ومحاذي للوسط في اللابتوب (lg:w-80) */}
+          <div className="flex-shrink-0 w-48 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2">
+            <div className="relative w-full p-2 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
               <img 
                 src="/mohamed.png" 
                 alt="Eng Mohamed Ayman" 
@@ -46,21 +46,19 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Text Content - تظهر أسفل الصورة في الموبايل وعلى اليسار في اللابتوب */}
-          <div className="flex-1 max-w-3xl order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-4 lg:mt-0">
+          {/* Text Content */}
+          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0">
             
             {/* Name - مضبوط ليكون في سطر واحد دائماً */}
-            <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-tight whitespace-nowrap">
+            <h1 className="text-[22px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
             
-            {/* Job Title */}
-            <h2 className="text-lg md:text-2xl text-gray-400 mb-6 font-medium">
+            <h2 className="text-sm sm:text-lg md:text-2xl text-gray-400 mb-6 font-medium">
               Senior Civil Engineer (Technical Office / BIM)
             </h2>
             
-            {/* Small Description */}
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8">
+            <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl">
               Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. 
               Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination. 
               Skilled in modern engineering software and strict code compliance.
@@ -68,15 +66,15 @@ export default function Portfolio() {
 
             {/* Badges (Place, Gmail, Tel) */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
-              <div className="flex items-center gap-2 bg-[#131313] border border-gray-800 rounded-lg px-4 py-2 text-sm text-gray-300">
+              <div className="flex items-center gap-2 bg-[#1a1a1a] border border-gray-800 rounded-lg px-4 py-2 text-xs md:text-sm text-gray-300">
                 <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                Riyadh, Saudi Arabia
+                Riyadh, KSA
               </div>
-              <a href="mailto:mohamaedaymann1516@gmail.com" className="flex items-center gap-2 bg-[#131313] border border-gray-800 rounded-lg px-4 py-2 text-sm text-gray-300 hover:border-[#D4AF37]/50 transition-colors">
+              <a href="mailto:mohamaedaymann1516@gmail.com" className="flex items-center gap-2 bg-[#1a1a1a] border border-gray-800 rounded-lg px-4 py-2 text-xs md:text-sm text-gray-300 hover:border-[#D4AF37]/50 transition-colors">
                 <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                mohamaedaymann1516@gmail.com
+                Email Me
               </a>
-              <a href="tel:+966566853823" className="flex items-center gap-2 bg-[#131313] border border-gray-800 rounded-lg px-4 py-2 text-sm text-gray-300 hover:border-[#D4AF37]/50 transition-colors">
+              <a href="tel:+966566853823" className="flex items-center gap-2 bg-[#1a1a1a] border border-gray-800 rounded-lg px-4 py-2 text-xs md:text-sm text-gray-300 hover:border-[#D4AF37]/50 transition-colors">
                 <svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 +966 566853823
               </a>
@@ -89,7 +87,7 @@ export default function Portfolio() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </a>
               
-              <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#131313] hover:bg-[#1a1a1a] text-[#D4AF37] w-11 h-11 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all">
+              <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#1a1a1a] hover:bg-[#222] text-[#D4AF37] w-11 h-11 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
@@ -99,49 +97,49 @@ export default function Portfolio() {
         </section>
 
         {/* ================= SECTION 2: SKILLS ================= */}
-        <section id="skills" className="px-8 md:px-16 max-w-7xl mx-auto py-24 border-t border-white/5">
+        <section id="skills" className="bg-[#111111] border border-white/5 rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl">
           <div className="flex items-center gap-3 mb-2">
             <svg className="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-            <h2 className="text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
+            <h2 className="text-2xl md:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
           </div>
-          <p className="text-gray-400 mb-10 ml-9">Tools, competencies, and languages I specialize in.</p>
+          <p className="text-gray-400 mb-10 md:ml-9 text-sm md:text-base">Tools, competencies, and languages I specialize in.</p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ml-0 md:ml-9">
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:ml-9">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6">
               <h3 className="text-[#D4AF37] font-semibold mb-6 border-b border-gray-800 pb-3">Engineering Software</h3>
               <div className="flex flex-wrap gap-2">
                 {['Revit Structural', 'AutoCAD', 'AutoCAD Structural Detailing', 'SAP 2000', 'Etabs', 'SAFE', 'Power BI', 'Cut Optimization'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#0a0a0a]">{skill}</span>
+                  <span key={skill} className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">{skill}</span>
                 ))}
               </div>
             </div>
 
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6">
               <h3 className="text-[#D4AF37] font-semibold mb-6 border-b border-gray-800 pb-3">Professional Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {['Problem Solving', 'Leadership', 'Analytical Skills', 'Decision Making', 'Attention to Detail', 'Team Player', 'Adaptability'].map(skill => (
-                  <span key={skill} className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#0a0a0a]">{skill}</span>
+                  <span key={skill} className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">{skill}</span>
                 ))}
               </div>
             </div>
 
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6">
               <h3 className="text-[#D4AF37] font-semibold mb-6 border-b border-gray-800 pb-3">Languages</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#0a0a0a]">Arabic (Native)</span>
-                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#0a0a0a]">English (C1)</span>
-                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#0a0a0a]">Spanish (B2)</span>
+                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">Arabic (Native)</span>
+                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">English (C1)</span>
+                <span className="px-3 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">Spanish (B2)</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* ================= SECTION 3: PROJECTS ================= */}
-        <section id="projects" className="px-8 md:px-16 max-w-7xl mx-auto py-24 border-t border-white/5">
-          <h2 className="text-3xl text-white font-bold mb-10 border-b border-white/10 pb-4">Featured Projects</h2>
+        <section id="projects" className="bg-[#111111] border border-white/5 rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl">
+          <h2 className="text-2xl md:text-3xl text-white font-bold mb-10 border-b border-white/10 pb-4">Featured Projects</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl text-white font-bold">NewGiza (NH-08 & NH-04)</h3>
                 <span className="text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded">ECG / Degla CFM</span>
@@ -155,7 +153,7 @@ export default function Portfolio() {
               </ul>
             </div>
             
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl text-white font-bold">BIM & 3D Coordination</h3>
                 <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">Advanced</span>
@@ -169,7 +167,7 @@ export default function Portfolio() {
               </ul>
             </div>
             
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl text-white font-bold">EL-HASSOUN HOTEL</h3>
                 <span className="text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded">Makkah, KSA</span>
@@ -182,7 +180,7 @@ export default function Portfolio() {
               </ul>
             </div>
 
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl text-white font-bold">PALM HILLS - PALM PLAY</h3>
                 <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">IND For Construction</span>
@@ -198,10 +196,10 @@ export default function Portfolio() {
         </section>
 
         {/* ================= SECTION 4: EDUCATION & TRAINING ================= */}
-        <section id="education" className="px-8 md:px-16 max-w-7xl mx-auto py-24 border-t border-white/5">
-          <h2 className="text-3xl text-white font-bold mb-10 border-b border-white/10 pb-4">Education & Training</h2>
+        <section id="education" className="bg-[#111111] border border-white/5 rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl">
+          <h2 className="text-2xl md:text-3xl text-white font-bold mb-10 border-b border-white/10 pb-4">Education & Training</h2>
           
-          <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 mb-8 border-l-4 border-l-[#D4AF37]">
+          <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 mb-8 border-l-4 border-l-[#D4AF37]">
             <h3 className="text-xl text-white font-bold mb-1">Bachelor of Civil Engineering</h3>
             <p className="text-[#D4AF37] text-sm mb-4">Fayoum University | Graduated May 2020</p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-12">
@@ -212,15 +210,15 @@ export default function Portfolio() {
 
           <h3 className="text-xl text-white font-bold mb-6">Certificates & Courses</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <h4 className="text-lg text-white mb-2">Technical Office Engineer Diploma</h4>
               <p className="text-gray-400 text-sm">Shop drawing, Quantity Survey, AutoCAD & Revit 3D Coordination, Planning, Document Control, and Quotations.</p>
             </div>
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <h4 className="text-lg text-white mb-2">Diploma in Concrete Design</h4>
               <p className="text-gray-400 text-sm">Advanced structural design methodologies certified by ECG.</p>
             </div>
-            <div className="bg-[#131313] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 hover:border-[#D4AF37]/50 transition-colors">
               <h4 className="text-lg text-white">ICDL</h4>
               <p className="text-gray-400 text-sm">International Computer Driving License.</p>
             </div>
@@ -228,28 +226,28 @@ export default function Portfolio() {
         </section>
 
         {/* ================= SECTION 5: CONTACT ================= */}
-        <section id="contact" className="px-8 md:px-16 max-w-7xl mx-auto py-24 border-t border-white/5">
+        <section id="contact" className="bg-[#111111] border border-white/5 rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl text-white font-bold mb-6">Get In Touch</h2>
-            <p className="text-gray-400 text-lg mb-12">
+            <h2 className="text-3xl md:text-4xl text-white font-bold mb-6">Get In Touch</h2>
+            <p className="text-gray-400 text-sm md:text-lg mb-12">
               Available for Technical Office, BIM Coordination, and Structural Engineering opportunities. Let's build something exceptional.
             </p>
 
             <div className="flex flex-col gap-4">
-              <a href="tel:+966566853823" className="group flex items-center justify-center gap-4 bg-[#131313] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
+              <a href="tel:+966566853823" className="group flex items-center justify-center gap-4 bg-[#1a1a1a] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
                 <span className="text-xl">📞</span>
                 <span className="text-lg text-gray-200 group-hover:text-[#D4AF37] transition-colors">+966 566853823</span>
               </a>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="mailto:mohamaedaymann1516@gmail.com" className="group flex flex-col items-center justify-center gap-2 bg-[#131313] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
+                <a href="mailto:mohamaedaymann1516@gmail.com" className="group flex flex-col items-center justify-center gap-2 bg-[#1a1a1a] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
                   <span className="text-2xl">✉️</span>
-                  <span className="text-sm text-gray-200 group-hover:text-[#D4AF37] transition-colors break-all">mohamaedaymann1516@gmail.com</span>
+                  <span className="text-xs md:text-sm text-gray-200 group-hover:text-[#D4AF37] transition-colors break-all">mohamaedaymann1516@gmail.com</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="group flex flex-col items-center justify-center gap-2 bg-[#131313] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
+                <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="group flex flex-col items-center justify-center gap-2 bg-[#1a1a1a] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-6 transition-all duration-300">
                   <span className="text-2xl">💼</span>
-                  <span className="text-sm text-gray-200 group-hover:text-[#D4AF37] transition-colors">LinkedIn Profile</span>
+                  <span className="text-xs md:text-sm text-gray-200 group-hover:text-[#D4AF37] transition-colors">LinkedIn Profile</span>
                 </a>
               </div>
             </div>
