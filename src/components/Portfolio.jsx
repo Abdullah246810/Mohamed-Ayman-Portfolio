@@ -45,13 +45,12 @@ export default function Portfolio() {
         </nav>
       </div>
 
-      {/* تقليل المسافة العلوية pt-20 بدلاً من المسافات الكبيرة السابقة */}
       <main className="pt-20 md:pt-28 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
         
         {/* ================= SECTION 1: ABOUT ================= */}
         <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
           
-          {/* Profile Image - أصغر ودائرية تماماً */}
+          {/* Profile Image */}
           <div className="flex-shrink-0 w-36 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
             <div className="relative w-full aspect-square p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
               <img 
@@ -174,8 +173,17 @@ export default function Portfolio() {
             
             {/* Project 1 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
-              <div className="h-40 sm:h-48 w-full overflow-hidden border-b border-gray-800">
-                <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800" alt="NewGiza" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              {/* تصغير ارتفاع الصورة h-32 في الموبايل و h-40 في الشاشات الأكبر وإلغاء الزووم */}
+              <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
+                <img 
+                  src="/newgiza.jpg" 
+                  alt="NewGiza" 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=NewGiza+Project";
+                  }}
+                />
               </div>
               <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
@@ -197,8 +205,16 @@ export default function Portfolio() {
             
             {/* Project 2 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
-              <div className="h-40 sm:h-48 w-full overflow-hidden border-b border-gray-800">
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800" alt="BIM Coordination" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
+                <img 
+                  src="/bim-project.jpg" 
+                  alt="BIM Coordination" 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=BIM+Coordination";
+                  }}
+                />
               </div>
               <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
@@ -220,8 +236,16 @@ export default function Portfolio() {
             
             {/* Project 3 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
-              <div className="h-40 sm:h-48 w-full overflow-hidden border-b border-gray-800">
-                <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800" alt="Hotel" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
+                <img 
+                  src="/hotel-project.jpg" 
+                  alt="Hotel" 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=EL-HASSOUN+HOTEL";
+                  }}
+                />
               </div>
               <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
@@ -243,8 +267,16 @@ export default function Portfolio() {
 
             {/* Project 4 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group">
-              <div className="h-40 sm:h-48 w-full overflow-hidden border-b border-gray-800">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800" alt="Palm Hills" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
+                <img 
+                  src="/palm-hills.jpg" 
+                  alt="Palm Hills" 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=PALM+HILLS";
+                  }}
+                />
               </div>
               <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
