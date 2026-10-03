@@ -1,38 +1,38 @@
 import React from 'react';
 
 export default function Portfolio() {
-  const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-lg tracking-widest whitespace-nowrap";
+  const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-base tracking-widest whitespace-nowrap";
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
-      {/* Navbar - أصغر، اللوجو على اليسار، وروابط قابلة للتمرير في الموبايل */}
-      <nav className="fixed w-full top-0 z-50 border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 flex flex-col md:flex-row justify-between items-start md:items-center">
-          <a href="#about" className="font-bold text-xl md:text-2xl tracking-wider text-white uppercase font-sans mb-3 md:mb-0 ml-1">
-            MOHAMED<span className="text-[#D4AF37]">.ENG</span>
-          </a>
-          
-          {/* إخفاء شريط التمرير باستخدام ستايل مدمج لضمان النظافة */}
-          <div className="flex gap-5 md:gap-8 overflow-x-auto w-full md:w-auto pb-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-            <a href="#about" className={navClass}>About</a>
-            <a href="#skills" className={navClass}>Skills</a>
-            <a href="#projects" className={navClass}>Projects</a>
-            <a href="#education" className={navClass}>Education</a>
-            <a href="#contact" className={navClass}>Contact</a>
-          </div>
-        </div>
-      </nav>
+      {/* Floating Pill Navbar - بدون لوجو وبدون سكرول */}
+      <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-4 pointer-events-none">
+        <nav className="pointer-events-auto bg-[#111111]/85 backdrop-blur-2xl border border-white/10 rounded-2xl md:rounded-full px-5 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-8 max-w-fit">
+          <a href="#about" className={navClass}>About</a>
+          <a href="#skills" className={navClass}>Skills</a>
+          <a href="#projects" className={navClass}>Projects</a>
+          <a href="#education" className={navClass}>Education</a>
+          <a href="#contact" className={navClass}>Contact</a>
+        </nav>
+      </div>
 
-      {/* Main Content - تقليل الـ padding العلوي لأن الـ Navbar أصبح أصغر */}
-      <main className="pt-28 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
+      <main className="pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
         
         {/* ================= SECTION 1: ABOUT ================= */}
-        <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
+        <section id="about" className="relative bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
           
+          {/* MOHAMED.ENG Badge - فوق على الشمال */}
+          <div className="w-full flex justify-start order-first lg:absolute lg:top-8 lg:left-8 z-10 mb-2 lg:mb-0">
+            <div className="border border-[#D4AF37]/40 bg-[#1a1a1a]/90 backdrop-blur-md rounded-lg px-3 py-1.5 shadow-md">
+              <span className="font-bold text-xs md:text-sm tracking-wider text-white uppercase font-sans">
+                MOHAMED<span className="text-[#D4AF37]">.ENG</span>
+              </span>
+            </div>
+          </div>
+
           {/* Profile Image */}
-          <div className="flex-shrink-0 w-44 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2">
+          <div className="flex-shrink-0 w-44 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
             <div className="relative w-full p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
               <img 
                 src="/mohamed.png" 
@@ -47,13 +47,12 @@ export default function Portfolio() {
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2">
+          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-6">
             
             <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
             
-            {/* Golden Container for Job Title - Two Lines */}
             <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit">
               <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug">
                 <span className="block text-lg md:text-2xl mb-1">Senior Civil Engineer</span>
@@ -100,8 +99,7 @@ export default function Portfolio() {
         <section id="skills" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
           <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
             <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
             <h2 className="text-2xl md:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
           </div>
@@ -153,8 +151,6 @@ export default function Portfolio() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            
-            {/* Project 1 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
               <div className="flex flex-col gap-2 mb-3 pl-2">
@@ -172,7 +168,6 @@ export default function Portfolio() {
               </ul>
             </div>
             
-            {/* Project 2 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
               <div className="flex flex-col gap-2 mb-3 pl-2">
@@ -190,7 +185,6 @@ export default function Portfolio() {
               </ul>
             </div>
             
-            {/* Project 3 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
               <div className="flex flex-col gap-2 mb-3 pl-2">
@@ -208,7 +202,6 @@ export default function Portfolio() {
               </ul>
             </div>
 
-            {/* Project 4 */}
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
               <div className="flex flex-col gap-2 mb-3 pl-2">
@@ -251,15 +244,18 @@ export default function Portfolio() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors">
+              <svg className="w-6 h-6 text-[#D4AF37] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               <h4 className="text-base text-white mb-2 font-semibold">Technical Office Engineer Diploma</h4>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">Shop drawing, Quantity Survey, AutoCAD & Revit 3D Coordination, Planning, and Quotations.</p>
             </div>
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors">
+              <svg className="w-6 h-6 text-[#D4AF37] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
               <h4 className="text-base text-white mb-2 font-semibold">Diploma in Concrete Design</h4>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">Advanced structural design methodologies certified by ECG.</p>
             </div>
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors flex flex-col justify-center">
-              <h4 className="text-base text-white font-semibold">ICDL</h4>
+              <svg className="w-6 h-6 text-[#D4AF37] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <h4 className="text-base text-white font-semibold mb-1">ICDL</h4>
               <p className="text-gray-400 text-xs sm:text-sm">International Computer Driving License.</p>
             </div>
           </div>
