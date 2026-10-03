@@ -1,36 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Portfolio() {
-  const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-base tracking-widest whitespace-nowrap";
+  // حالة (State) لتتبع القسم النشط حالياً
+  const [activeSection, setActiveSection] = useState('about');
+
+  // تأثير (Effect) لمراقبة مكان الـ Scroll وتحديث القسم النشط
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px" } // لضمان إضاءة القسم بمجرد ظهوره بشكل مريح في الشاشة
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
+  // دالة ذكية لإعطاء اللون الذهبي المتوهج للقسم النشط
+  const getNavClass = (sectionId) => {
+    const isActive = activeSection === sectionId;
+    return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${
+      isActive 
+        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]" 
+        : "text-gray-400 hover:text-gray-200"
+    }`;
+  };
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
-      {/* Floating Pill Navbar - بدون لوجو وبدون سكرول */}
-      <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-4 pointer-events-none">
-        <nav className="pointer-events-auto bg-[#111111]/85 backdrop-blur-2xl border border-white/10 rounded-2xl md:rounded-full px-5 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-x-8 max-w-fit">
-          <a href="#about" className={navClass}>About</a>
-          <a href="#skills" className={navClass}>Skills</a>
-          <a href="#projects" className={navClass}>Projects</a>
-          <a href="#education" className={navClass}>Education</a>
-          <a href="#contact" className={navClass}>Contact</a>
+      {/* Floating Pill Navbar - سطر واحد فقط، بدون سكرول، ويضيء مع النزول */}
+      <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-2 pointer-events-none">
+        <nav className="pointer-events-auto bg-[#111111]/90 backdrop-blur-2xl border border-white/10 rounded-full px-4 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-nowrap justify-center items-center gap-3 sm:gap-5 md:gap-8 w-fit max-w-full">
+          <a href="#about" className={getNavClass('about')}>About</a>
+          <a href="#skills" className={getNavClass('skills')}>Skills</a>
+          <a href="#projects" className={getNavClass('projects')}>Projects</a>
+          <a href="#education" className={getNavClass('education')}>Education</a>
+          <a href="#contact" className={getNavClass('contact')}>Contact</a>
         </nav>
       </div>
 
-      <main className="pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
+      <main className="pt-28 md:pt-36 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
         
         {/* ================= SECTION 1: ABOUT ================= */}
-        <section id="about" className="relative bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
+        <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
           
-          {/* MOHAMED.ENG Badge - فوق على الشمال */}
-          <div className="w-full flex justify-start order-first lg:absolute lg:top-8 lg:left-8 z-10 mb-2 lg:mb-0">
-            <div className="border border-[#D4AF37]/40 bg-[#1a1a1a]/90 backdrop-blur-md rounded-lg px-3 py-1.5 shadow-md">
-              <span className="font-bold text-xs md:text-sm tracking-wider text-white uppercase font-sans">
-                MOHAMED<span className="text-[#D4AF37]">.ENG</span>
-              </span>
-            </div>
-          </div>
-
           {/* Profile Image */}
           <div className="flex-shrink-0 w-44 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
             <div className="relative w-full p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
@@ -47,7 +67,7 @@ export default function Portfolio() {
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-6">
+          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0">
             
             <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
