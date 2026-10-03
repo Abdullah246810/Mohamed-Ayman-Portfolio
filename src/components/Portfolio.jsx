@@ -1,38 +1,39 @@
 import React from 'react';
 
 export default function Portfolio() {
-  const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-lg tracking-widest";
+  const navClass = "text-gray-400 hover:text-[#D4AF37] transition-colors duration-300 font-serif text-sm md:text-lg tracking-widest whitespace-nowrap";
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
-      {/* Navbar - تم زيادة الشفافية وتأثير الزجاج */}
-      <nav className="fixed w-full top-0 z-50 border-b border-white/5 bg-[#050505]/60 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-          <a href="#about" className="font-bold text-2xl tracking-wider text-white uppercase font-sans">
+      {/* Navbar - أصغر، اللوجو على اليسار، وروابط قابلة للتمرير في الموبايل */}
+      <nav className="fixed w-full top-0 z-50 border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 flex flex-col md:flex-row justify-between items-start md:items-center">
+          <a href="#about" className="font-bold text-xl md:text-2xl tracking-wider text-white uppercase font-sans mb-3 md:mb-0 ml-1">
             MOHAMED<span className="text-[#D4AF37]">.ENG</span>
           </a>
           
-          <div className="flex flex-wrap gap-x-5 gap-y-3 md:gap-10 w-full md:w-auto justify-center text-center">
+          {/* إخفاء شريط التمرير باستخدام ستايل مدمج لضمان النظافة */}
+          <div className="flex gap-5 md:gap-8 overflow-x-auto w-full md:w-auto pb-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <style>{`div::-webkit-scrollbar { display: none; }`}</style>
             <a href="#about" className={navClass}>About</a>
             <a href="#skills" className={navClass}>Skills</a>
             <a href="#projects" className={navClass}>Projects</a>
-            <a href="#education" className={navClass}>Education & Training</a>
+            <a href="#education" className={navClass}>Education</a>
             <a href="#contact" className={navClass}>Contact</a>
           </div>
         </div>
       </nav>
 
-      {/* Main Content - ضبط المسافات الجانبية للموبايل */}
-      <main className="pt-36 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
+      {/* Main Content - تقليل الـ padding العلوي لأن الـ Navbar أصبح أصغر */}
+      <main className="pt-28 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
         
         {/* ================= SECTION 1: ABOUT ================= */}
-        {/* تقليل الـ padding في الموبايل لزيادة المساحة، وتقليل المسافة بين الصورة والاسم (gap-5) */}
-        <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-16">
+        <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
           
           {/* Profile Image */}
-          <div className="flex-shrink-0 w-48 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2">
-            <div className="relative w-full p-2 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
+          <div className="flex-shrink-0 w-44 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2">
+            <div className="relative w-full p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
               <img 
                 src="/mohamed.png" 
                 alt="Eng Mohamed Ayman" 
@@ -46,20 +47,23 @@ export default function Portfolio() {
           </div>
 
           {/* Text Content */}
-          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2">
             
-            <h1 className="text-[24px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-tight whitespace-nowrap">
+            <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
             
-            <h2 className="text-sm sm:text-lg md:text-2xl text-gray-400 mb-5 font-medium">
-              Senior Civil Engineer (Technical Office / BIM)
-            </h2>
+            {/* Golden Container for Job Title - Two Lines */}
+            <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit">
+              <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug">
+                <span className="block text-lg md:text-2xl mb-1">Senior Civil Engineer</span>
+                <span className="block text-gray-300 font-medium text-xs md:text-sm">(Technical Office / BIM)</span>
+              </h2>
+            </div>
             
-            <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl">
+            <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl px-2 lg:px-0">
               Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. 
               Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination. 
-              Skilled in modern engineering software and strict code compliance.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mb-8">
@@ -77,13 +81,13 @@ export default function Portfolio() {
               </a>
             </div>
 
-            <div className="flex justify-center lg:justify-start gap-4 w-full lg:w-auto">
-              <a href="#projects" className="bg-[#D4AF37] hover:bg-[#b5952f] text-black px-6 py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 flex-1 lg:flex-none">
+            <div className="flex justify-center lg:justify-start gap-3 w-full lg:w-auto px-4 lg:px-0">
+              <a href="#projects" className="bg-[#D4AF37] hover:bg-[#b5952f] text-black px-6 py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 flex-1 lg:flex-none text-sm md:text-base">
                 View Projects
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </a>
               
-              <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#1a1a1a] hover:bg-[#222] text-[#D4AF37] w-12 h-12 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all flex-shrink-0">
+              <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#1a1a1a] hover:bg-[#222] text-[#D4AF37] w-11 h-11 md:w-12 md:h-12 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all flex-shrink-0">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
@@ -94,19 +98,20 @@ export default function Portfolio() {
 
         {/* ================= SECTION 2: SKILLS ================= */}
         <section id="skills" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          <div className="flex items-center gap-3 mb-2">
-            {/* أيقونة مبنى هندسي بدلاً من أيقونة البرمجة */}
-            <svg className="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <h2 className="text-2xl md:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
           </div>
-          <p className="text-gray-400 mb-8 md:ml-9 text-sm md:text-base">Tools, competencies, and languages I specialize in.</p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:ml-9">
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6">
-              <h3 className="text-[#D4AF37] font-semibold mb-4 border-b border-gray-800 pb-2">Engineering Software</h3>
-              {/* التوازي باستخدام grid من عمودين */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all">
+              <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                <svg className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" /></svg>
+                <h3 className="text-[#D4AF37] font-semibold">Engineering Software</h3>
+              </div>
               <div className="grid grid-cols-2 gap-2">
                 {['Revit Structural', 'AutoCAD', 'AutoCAD Detailing', 'SAP 2000', 'Etabs', 'SAFE', 'Power BI', 'Cut Optimization'].map(skill => (
                   <span key={skill} className="px-2 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs text-center bg-[#111111] truncate">{skill}</span>
@@ -114,8 +119,11 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6">
-              <h3 className="text-[#D4AF37] font-semibold mb-4 border-b border-gray-800 pb-2">Professional Skills</h3>
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all">
+              <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                <svg className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                <h3 className="text-[#D4AF37] font-semibold">Professional Skills</h3>
+              </div>
               <div className="grid grid-cols-2 gap-2">
                 {['Problem Solving', 'Leadership', 'Analytical', 'Decisions', 'Detail Oriented', 'Team Player'].map(skill => (
                   <span key={skill} className="px-2 py-1.5 border border-gray-700/50 rounded-md text-gray-300 text-xs text-center bg-[#111111] truncate">{skill}</span>
@@ -123,76 +131,98 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6">
-              <h3 className="text-[#D4AF37] font-semibold mb-4 border-b border-gray-800 pb-2">Languages</h3>
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all">
+              <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                <svg className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+                <h3 className="text-[#D4AF37] font-semibold">Languages</h3>
+              </div>
               <div className="flex flex-col gap-2">
-                <span className="px-3 py-2 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">Arabic (Native)</span>
-                <span className="px-3 py-2 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">English (C1)</span>
-                <span className="px-3 py-2 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111]">Spanish (B2)</span>
+                <span className="px-3 py-2.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111] flex justify-between"><span>Arabic</span> <span className="text-[#D4AF37]">Native</span></span>
+                <span className="px-3 py-2.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111] flex justify-between"><span>English</span> <span className="text-[#D4AF37]">C1</span></span>
+                <span className="px-3 py-2.5 border border-gray-700/50 rounded-md text-gray-300 text-xs bg-[#111111] flex justify-between"><span>Spanish</span> <span className="text-[#D4AF37]">B2</span></span>
               </div>
             </div>
           </div>
         </section>
 
         {/* ================= SECTION 3: PROJECTS ================= */}
-        <section id="projects" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          <h2 className="text-2xl md:text-3xl text-white font-bold mb-8 border-b border-white/10 pb-4">Featured Projects</h2>
+        <section id="projects" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl">
+          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+            <h2 className="text-2xl md:text-3xl text-white font-bold">Featured Projects</h2>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* تصميم البطاقة الجديد بخط ذهبي جانبي وترتيب أفضل في الموبايل */}
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-colors">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            
+            {/* Project 1 */}
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-              <div className="flex flex-col gap-2 mb-4 pl-2">
-                <h3 className="text-xl text-white font-bold">NewGiza (NH-08 & NH-04)</h3>
-                <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit border border-[#D4AF37]/20">ECG / Degla CFM</span>
+              <div className="flex flex-col gap-2 mb-3 pl-2">
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                  <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">NewGiza (NH-08 & NH-04)</h3>
+                </div>
+                <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit ml-7 border border-[#D4AF37]/20">ECG / Degla CFM</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-2">Preparation and coordination of complex structural shop drawings for a major residential and commercial development.</p>
-              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-6">
-                <li>Approved Shop Drawings (Code B) for Foundations.</li>
-                <li>Reinforcement Details for Swimming Pools & Mechanical Rooms.</li>
-                <li>Underground Masonry 3D Modeling and exact BOQ/QS.</li>
+              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">Preparation and coordination of complex structural shop drawings for a major residential and commercial development.</p>
+              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-11">
+                <li>Approved Shop Drawings (Code B).</li>
+                <li>Swimming Pools & Mech Rooms Details.</li>
+                <li>Masonry 3D Modeling and exact BOQ.</li>
               </ul>
             </div>
             
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-colors">
+            {/* Project 2 */}
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-              <div className="flex flex-col gap-2 mb-4 pl-2">
-                <h3 className="text-xl text-white font-bold">BIM & 3D Coordination</h3>
-                <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit border border-gray-600">Advanced Modeling</span>
+              <div className="flex flex-col gap-2 mb-3 pl-2">
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                  <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">BIM & 3D Coordination</h3>
+                </div>
+                <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit ml-7 border border-gray-600">Advanced Modeling</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-2">End-to-end structural modeling and interdisciplinary clash detection for various large-scale projects.</p>
-              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-6">
-                <li>Strict adherence to BIM protocols and Level of Development.</li>
-                <li>MEP sleeves location to resolve interference.</li>
-                <li>Navisworks coordination and clash reports.</li>
+              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">End-to-end structural modeling and interdisciplinary clash detection for various large-scale projects.</p>
+              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-11">
+                <li>Strict adherence to BIM protocols.</li>
+                <li>MEP sleeves location accuracy.</li>
+                <li>Navisworks coordination & reports.</li>
               </ul>
             </div>
             
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-colors">
+            {/* Project 3 */}
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-              <div className="flex flex-col gap-2 mb-4 pl-2">
-                <h3 className="text-xl text-white font-bold">EL-HASSOUN HOTEL</h3>
-                <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit border border-[#D4AF37]/20">Makkah, KSA</span>
+              <div className="flex flex-col gap-2 mb-3 pl-2">
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                  <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">EL-HASSOUN HOTEL</h3>
+                </div>
+                <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit ml-7 border border-[#D4AF37]/20">Makkah, KSA</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-2">30.5 Floors hospitality project executed under a Design-Build contract by Taysar Trading Company.</p>
-              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-6">
-                <li>Coordination between Plumbing, Electrical, and Post Tension.</li>
-                <li>Preparation of RFIs and solving site technical problems.</li>
-                <li>As-built drawings preparation for final handover.</li>
+              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">30.5 Floors hospitality project executed under a Design-Build contract by Taysar Trading Company.</p>
+              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-11">
+                <li>Coordination (Plumbing, Electrical, PT).</li>
+                <li>Preparation of RFIs.</li>
+                <li>As-built drawings preparation.</li>
               </ul>
             </div>
 
-            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-colors">
+            {/* Project 4 */}
+            <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-4 sm:p-5 relative overflow-hidden hover:border-[#D4AF37]/40 transition-all">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-              <div className="flex flex-col gap-2 mb-4 pl-2">
-                <h3 className="text-xl text-white font-bold">PALM HILLS - PALM PLAY</h3>
-                <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit border border-gray-600">IND For Construction</span>
+              <div className="flex flex-col gap-2 mb-3 pl-2">
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                  <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">PALM HILLS - PALM PLAY</h3>
+                </div>
+                <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit ml-7 border border-gray-600">IND For Construction</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-2">Design-Build project in October, Egypt. Managed technical office and site coordination.</p>
-              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-6">
-                <li>IFC drawings study and Concrete dimension Shop drawings.</li>
-                <li>Quantity Survey (QS) works for Civil & Architectural items.</li>
-                <li>On-site technical assistance to resolve engineering issues.</li>
+              <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">Design-Build project in October, Egypt. Managed technical office and site coordination.</p>
+              <ul className="text-gray-400 font-light text-xs sm:text-sm space-y-2 list-disc ml-11">
+                <li>IFC drawings & Shop drawings.</li>
+                <li>Quantity Survey (QS) works.</li>
+                <li>On-site technical assistance.</li>
               </ul>
             </div>
           </div>
@@ -200,7 +230,10 @@ export default function Portfolio() {
 
         {/* ================= SECTION 4: EDUCATION & TRAINING ================= */}
         <section id="education" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          <h2 className="text-2xl md:text-3xl text-white font-bold mb-8 border-b border-white/10 pb-4">Education & Training</h2>
+          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14v6" /></svg>
+            <h2 className="text-2xl md:text-3xl text-white font-bold">Education & Training</h2>
+          </div>
           
           <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 mb-8 border-l-4 border-l-[#D4AF37]">
             <h3 className="text-xl text-white font-bold mb-1">Bachelor of Civil Engineering</h3>
@@ -211,7 +244,11 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <h3 className="text-lg md:text-xl text-white font-bold mb-5">Certificates & Courses</h3>
+          <div className="flex items-center gap-3 mb-5 mt-10">
+            <svg className="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <h3 className="text-lg md:text-xl text-white font-bold">Certificates & Courses</h3>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors">
               <h4 className="text-base text-white mb-2 font-semibold">Technical Office Engineer Diploma</h4>
@@ -231,15 +268,18 @@ export default function Portfolio() {
         {/* ================= SECTION 5: CONTACT ================= */}
         <section id="contact" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl text-white font-bold mb-4">Get In Touch</h2>
-            <p className="text-gray-400 text-sm md:text-lg mb-10">
-              Available for Technical Office, BIM Coordination, and Structural Engineering opportunities. Let's build something exceptional.
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <h2 className="text-3xl md:text-4xl text-white font-bold">Get In Touch</h2>
+            </div>
+            <p className="text-gray-400 text-sm md:text-lg mb-10 px-4">
+              Available for Technical Office, BIM Coordination, and Structural Engineering opportunities.
             </p>
 
             <div className="flex flex-col gap-4">
               <a href="tel:+966566853823" className="group flex items-center justify-center gap-3 bg-[#1a1a1a] border border-gray-800 hover:border-[#D4AF37] rounded-xl p-5 transition-all duration-300">
                 <span className="text-xl">📞</span>
-                <span className="text-base md:text-lg text-gray-200 group-hover:text-[#D4AF37] transition-colors">+966 566853823</span>
+                <span className="text-base md:text-lg text-gray-200 group-hover:text-[#D4AF37] transition-colors font-medium">+966 566853823</span>
               </a>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
