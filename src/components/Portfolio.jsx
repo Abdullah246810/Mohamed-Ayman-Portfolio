@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Portfolio() {
-  // حالة (State) لتتبع القسم النشط حالياً
   const [activeSection, setActiveSection] = useState('about');
 
-  // تأثير (Effect) لمراقبة مكان الـ Scroll وتحديث القسم النشط
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(
@@ -15,14 +13,13 @@ export default function Portfolio() {
           }
         });
       },
-      { rootMargin: "-20% 0px -70% 0px" } // لضمان إضاءة القسم بمجرد ظهوره بشكل مريح في الشاشة
+      { rootMargin: "-20% 0px -70% 0px" } 
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
-  // دالة ذكية لإعطاء اللون الذهبي المتوهج للقسم النشط
   const getNavClass = (sectionId) => {
     const isActive = activeSection === sectionId;
     return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${
@@ -35,7 +32,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
       
-      {/* Floating Pill Navbar - سطر واحد فقط، بدون سكرول، ويضيء مع النزول */}
+      {/* Floating Pill Navbar */}
       <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-2 pointer-events-none">
         <nav className="pointer-events-auto bg-[#111111]/90 backdrop-blur-2xl border border-white/10 rounded-full px-4 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-nowrap justify-center items-center gap-3 sm:gap-5 md:gap-8 w-fit max-w-full">
           <a href="#about" className={getNavClass('about')}>About</a>
@@ -51,7 +48,6 @@ export default function Portfolio() {
         {/* ================= SECTION 1: ABOUT ================= */}
         <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
           
-          {/* Profile Image */}
           <div className="flex-shrink-0 w-44 sm:w-56 lg:w-80 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
             <div className="relative w-full p-1.5 border-2 border-[#D4AF37] rounded-2xl shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
               <img 
@@ -66,14 +62,13 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0">
             
             <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
             
-            <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit">
+            <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit mx-auto lg:mx-0">
               <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug">
                 <span className="block text-lg md:text-2xl mb-1">Senior Civil Engineer</span>
                 <span className="block text-gray-300 font-medium text-xs md:text-sm">(Technical Office / BIM)</span>
@@ -117,12 +112,14 @@ export default function Portfolio() {
 
         {/* ================= SECTION 2: SKILLS ================= */}
         <section id="skills" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Section Header with Border and Centered on Mobile */}
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-6 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+            <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
-            <h2 className="text-2xl md:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Technical Skills</h2>
           </div>
+          <p className="text-gray-400 mb-8 text-center md:text-left text-sm md:text-base">Tools, competencies, and languages I specialize in.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all">
@@ -165,9 +162,10 @@ export default function Portfolio() {
 
         {/* ================= SECTION 3: PROJECTS ================= */}
         <section id="projects" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl">
-          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-            <h2 className="text-2xl md:text-3xl text-white font-bold">Featured Projects</h2>
+          {/* Section Header with Border and Centered on Mobile */}
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-10 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+            <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Featured Projects</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
@@ -243,9 +241,10 @@ export default function Portfolio() {
 
         {/* ================= SECTION 4: EDUCATION & TRAINING ================= */}
         <section id="education" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
-          <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-            <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14v6" /></svg>
-            <h2 className="text-2xl md:text-3xl text-white font-bold">Education & Training</h2>
+          {/* Section Header with Border and Centered on Mobile */}
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-10 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-lg shadow-black/20">
+            <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14v6" /></svg>
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Education & Training</h2>
           </div>
           
           <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 mb-8 border-l-4 border-l-[#D4AF37]">
@@ -284,9 +283,10 @@ export default function Portfolio() {
         {/* ================= SECTION 5: CONTACT ================= */}
         <section id="contact" className="bg-[#111111] border border-white/5 rounded-[2rem] p-6 md:p-12 lg:p-16 shadow-2xl">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <svg className="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-              <h2 className="text-3xl md:text-4xl text-white font-bold">Get In Touch</h2>
+            {/* Section Header with Border and Always Centered */}
+            <div className="flex items-center justify-center gap-3 mb-6 border border-white/10 bg-[#151515] rounded-2xl px-6 py-3 w-fit mx-auto shadow-lg shadow-black/20">
+              <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Get In Touch</h2>
             </div>
             <p className="text-gray-400 text-sm md:text-lg mb-10 px-4">
               Available for Technical Office, BIM Coordination, and Structural Engineering opportunities.
