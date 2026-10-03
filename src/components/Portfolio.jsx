@@ -82,7 +82,7 @@ export default function Portfolio() {
             {/* قمنا بتصغير الأبعاد هنا لتكون w-52 في الموبايل وتصل إلى w-72 في اللابتوب */}
             <div className="relative w-52 h-52 sm:w-60 sm:h-60 lg:w-72 lg:h-72 rounded-full p-2 border-2 border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.15)] group">
               <img 
-                src="dist/assets/Smiling Man in Beige Blazer Portrait.png" 
+                src="/mohamed.png"
                 alt="Eng Mohamed Ayman" 
                 className="w-full h-full object-cover rounded-full filter grayscale hover:grayscale-0 transition-all duration-500"
                 onError={(e) => {
