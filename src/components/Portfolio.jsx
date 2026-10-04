@@ -424,95 +424,241 @@ export default function Portfolio() {
           </section>
 
           {/* ================= SECTION 3: PROJECTS ================= */}
-          <section id="projects" className="bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl">
+          <section
+            id="projects"
+            className="bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl"
+          >
             <FadeUp>
               <div className={sectionHeaderClass}>
-                <svg className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Featured Projects</h2>
+                <svg
+                  className="w-6 h-6 md:w-7 md:h-7 text-[#D4AF37]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+
+                <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">
+                  Featured Projects
+                </h2>
               </div>
             </FadeUp>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
+              {/* ================= NEW GIZA ================= */}
               <FadeUp delay={100}>
                 <TiltCard className="h-full">
                   <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden shadow-xl flex flex-col group h-full">
-                    <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                      <img src="/newgiza.jpg" alt="NewGiza" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=NewGiza+Project"; }} />
-                    </div>
-                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-                      <div className="flex flex-col gap-2 mb-3 pl-2">
-                        <div className="flex items-start gap-2">
-                          <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-                          <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">NewGiza (NH-08 & NH-04)</h3>
-                        </div>
-                        <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit ml-7 border border-[#D4AF37]/20">ECG / Degla CFM</span>
+
+                    {/* Project Image */}
+                    <div className="h-52 sm:h-60 w-full overflow-hidden border-b border-gray-800 bg-[#151515] relative">
+                      <img
+                        src="/newgiza-project.jpg"
+                        alt="NewGiza Project"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            "https://images.squarespace-cdn.com/content/v1/561a16a8e4b076f70550437b/1461228641397-46NMWQRLUGQIUZUIJLIK/1.jpg";
+                        }}
+                      />
+
+                      {/* Image Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+                          Residential Development
+                        </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">Preparation and coordination of complex structural shop drawings for a major residential and commercial development.</p>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
+
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
+
+                      <div className="pl-2">
+                        <h3 className="text-lg sm:text-xl text-white font-bold leading-tight mb-2">
+                          NewGiza (NH-08 & NH-04)
+                        </h3>
+
+                        <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded border border-[#D4AF37]/20 inline-block mb-3">
+                          ECG / Degla CFM
+                        </span>
+
+                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                          Preparation and coordination of complex structural shop drawings
+                          for a major residential and commercial development.
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 </TiltCard>
               </FadeUp>
 
+
+              {/* ================= BIM ================= */}
               <FadeUp delay={200}>
                 <TiltCard className="h-full">
                   <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden shadow-xl flex flex-col group h-full">
-                    <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                      <img src="/bim-project.jpg" alt="BIM Coordination" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=BIM+Coordination"; }} />
-                    </div>
-                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-                      <div className="flex flex-col gap-2 mb-3 pl-2">
-                        <div className="flex items-start gap-2">
-                          <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-                          <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">BIM & 3D Coordination</h3>
-                        </div>
-                        <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit ml-7 border border-gray-600">Advanced Modeling</span>
+
+                    {/* Project Image */}
+                    <div className="h-52 sm:h-60 w-full overflow-hidden border-b border-gray-800 bg-[#151515] relative">
+                      <img
+                        src="/bim-3d-project.jpg"
+                        alt="BIM and 3D Coordination"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            "https://www.autodesk.com/content/dam/autodesk/www/products/autodesk-revit-family/fy22/construction-industry/images/improve-communication-large-1920x1080.jpg";
+                        }}
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+                          Structural BIM
+                        </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">End-to-end structural modeling and interdisciplinary clash detection for various large-scale projects.</p>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
+
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
+
+                      <div className="pl-2">
+                        <h3 className="text-lg sm:text-xl text-white font-bold leading-tight mb-2">
+                          BIM & 3D Coordination
+                        </h3>
+
+                        <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded border border-gray-600 inline-block mb-3">
+                          Advanced Modeling
+                        </span>
+
+                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                          End-to-end structural modeling and interdisciplinary clash
+                          detection for various large-scale projects.
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 </TiltCard>
               </FadeUp>
 
+
+              {/* ================= EL-HASSOUN HOTEL ================= */}
               <FadeUp delay={100}>
                 <TiltCard className="h-full">
                   <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden shadow-xl flex flex-col group h-full">
-                    <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                      <img src="/hotel-project.jpg" alt="Hotel" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=EL-HASSOUN+HOTEL"; }} />
-                    </div>
-                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-                      <div className="flex flex-col gap-2 mb-3 pl-2">
-                        <div className="flex items-start gap-2">
-                          <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-                          <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">EL-HASSOUN HOTEL</h3>
-                        </div>
-                        <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded w-fit ml-7 border border-[#D4AF37]/20">Makkah, KSA</span>
+
+                    {/* Project Image */}
+                    <div className="h-52 sm:h-60 w-full overflow-hidden border-b border-gray-800 bg-[#151515] relative">
+                      <img
+                        src="/el-hassoun-hotel.jpg"
+                        alt="EL-HASSOUN HOTEL"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            "https://cdn.risal.io/uploads/1985/9fc8b092374a46d8a9260d5c7fedadff.jpg";
+                        }}
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+                          Hospitality Project
+                        </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">30.5 Floors hospitality project executed under a Design-Build contract by Taysar Trading Company.</p>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
+
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
+
+                      <div className="pl-2">
+                        <h3 className="text-lg sm:text-xl text-white font-bold leading-tight mb-2">
+                          EL-HASSOUN HOTEL
+                        </h3>
+
+                        <span className="text-[10px] sm:text-xs bg-[#D4AF37]/10 text-[#D4AF37] px-2 py-1 rounded border border-[#D4AF37]/20 inline-block mb-3">
+                          Makkah, KSA
+                        </span>
+
+                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                          30.5 Floors hospitality project executed under a Design-Build
+                          contract by Taysar Trading Company.
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 </TiltCard>
               </FadeUp>
 
+
+              {/* ================= PALM HILLS ================= */}
               <FadeUp delay={200}>
                 <TiltCard className="h-full">
                   <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden shadow-xl flex flex-col group h-full">
-                    <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                      <img src="/palm-hills.jpg" alt="Palm Hills" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=PALM+HILLS"; }} />
-                    </div>
-                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
-                      <div className="flex flex-col gap-2 mb-3 pl-2">
-                        <div className="flex items-start gap-2">
-                          <svg className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
-                          <h3 className="text-lg sm:text-xl text-white font-bold leading-tight">PALM HILLS - PALM PLAY</h3>
-                        </div>
-                        <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded w-fit ml-7 border border-gray-600">IND For Construction</span>
+
+                    {/* Project Image */}
+                    <div className="h-52 sm:h-60 w-full overflow-hidden border-b border-gray-800 bg-[#151515] relative">
+                      <img
+                        src="/palm-hills-project.jpg"
+                        alt="Palm Hills - Palm Play"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            "https://static.shared.propertyfinder.eg/media/images/listing/7YEJ109MF8NVV7R1FW5T84F724/0d9646e8-d86e-407a-9687-73e60b4917b5/668x452.jpg";
+                        }}
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold">
+                          Residential Development
+                        </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4 pl-7 leading-relaxed">Design-Build project in October, Egypt. Managed technical office and site coordination.</p>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5 relative flex-1 flex flex-col">
+
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37]"></div>
+
+                      <div className="pl-2">
+                        <h3 className="text-lg sm:text-xl text-white font-bold leading-tight mb-2">
+                          PALM HILLS - PALM PLAY
+                        </h3>
+
+                        <span className="text-[10px] sm:text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded border border-gray-600 inline-block mb-3">
+                          IND For Construction
+                        </span>
+
+                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                          Design-Build project in October, Egypt. Managed technical office
+                          and site coordination.
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 </TiltCard>
