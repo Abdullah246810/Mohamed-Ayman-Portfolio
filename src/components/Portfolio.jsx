@@ -168,17 +168,63 @@ export default function Portfolio() {
       <CustomStyles />
 
       {/* ================= PRELOADER ================= */}
-      <div className={`fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-        <div className="flex flex-col items-center justify-center gap-10">
-          <h1 className="text-[#D4AF37] text-4xl md:text-6xl font-serif font-black tracking-[0.2em] animate-pulse text-center leading-snug drop-shadow-lg uppercase">
+      <div
+        className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden
+  bg-[radial-gradient(circle_at_center,#1c1a12_0%,#0d0d0c_35%,#050505_75%)]
+  transition-opacity duration-1000 ease-in-out
+  ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      >
+
+        {/* Golden ambient glow */}
+        <div className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/10 blur-[100px] pointer-events-none" />
+
+        {/* Decorative rings */}
+        <div className="absolute w-[300px] h-[300px] md:w-[420px] md:h-[420px] rounded-full border border-[#D4AF37]/10 animate-pulse" />
+        <div className="absolute w-[230px] h-[230px] md:w-[340px] md:h-[340px] rounded-full border border-white/5" />
+
+        <div className="relative z-10 flex flex-col items-center justify-center gap-7">
+
+          {/* Profile Image */}
+          <div className="relative">
+            <div className="absolute inset-[-8px] rounded-full border border-[#D4AF37]/30 animate-pulse" />
+
+            <div className="w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px]
+        bg-gradient-to-tr from-[#D4AF37] via-[#fff3b0] to-[#8f741f]
+        shadow-[0_0_35px_rgba(212,175,55,0.35)]"
+            >
+              <img
+                src="/mohamed.png"
+                alt="Eng Mohamed Ayman"
+                className="w-full h-full object-cover object-top rounded-full border-4 border-[#0b0b0a]"
+              />
+            </div>
+          </div>
+
+          {/* Name */}
+          <h1 className="text-[#D4AF37] text-3xl md:text-5xl font-serif font-black
+      tracking-[0.2em] animate-pulse text-center leading-snug
+      drop-shadow-[0_0_15px_rgba(212,175,55,0.35)] uppercase"
+          >
             MOHAMED<br />AYMAN
           </h1>
-          <div className="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-[#D4AF37]" style={{ animation: 'loadingBar 2.5s ease-in-out forwards' }} />
+
+          {/* Loading Bar */}
+          <div className="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden
+      border border-white/5 shadow-inner"
+          >
+            <div
+              className="h-full bg-gradient-to-r from-[#8f741f] via-[#D4AF37] to-[#fff3b0]"
+              style={{ animation: 'loadingBar 2.5s ease-in-out forwards' }}
+            />
           </div>
+
+          {/* Small Loading Text */}
+          <span className="text-[9px] md:text-[10px] tracking-[0.4em] text-gray-500 uppercase">
+            Portfolio
+          </span>
+
         </div>
       </div>
-
       <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black relative overflow-x-hidden">
 
         {/* ================= خلفية Parallax والجزيئات الذهبية ================= */}
