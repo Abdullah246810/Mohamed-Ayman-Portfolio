@@ -62,9 +62,8 @@ const FadeUp = ({ children, delay = 0 }) => {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-[800ms] ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
+      className={`transition-all duration-[800ms] ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -161,9 +160,8 @@ export default function Portfolio() {
 
   const getNavClass = (sectionId) => {
     const isActive = activeSection === sectionId;
-    return `transition-all duration-300 font-serif whitespace-nowrap cursor-pointer flex flex-col items-center gap-1 ${
-      isActive ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-110" : "text-gray-400 hover:text-gray-200"
-    }`;
+    return `transition-all duration-300 font-serif whitespace-nowrap cursor-pointer flex flex-col items-center gap-1 ${isActive ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-110" : "text-gray-400 hover:text-gray-200"
+      }`;
   };
 
   const sectionHeaderClass = "flex items-center justify-center md:justify-start gap-3 mb-8 border border-[#D4AF37]/30 bg-gradient-to-r from-[#0a0a0a] via-[#D4AF37]/15 to-[#0a0a0a] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-[0_4px_20px_rgba(212,175,55,0.15)]";
@@ -174,9 +172,8 @@ export default function Portfolio() {
 
       {/* ================= PRELOADER شاشة التحميل ================= */}
       <div
-        className={`fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${
-          isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
+        className={`fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
       >
         <div className="flex flex-col items-center justify-center gap-10">
           <h1 className="text-[#D4AF37] text-4xl md:text-6xl font-serif font-black tracking-[0.2em] animate-pulse text-center leading-snug drop-shadow-lg uppercase">
@@ -231,9 +228,9 @@ export default function Portfolio() {
         <div className="md:hidden fixed left-1 sm:left-2 top-1/2 -translate-y-1/2 h-[75vh] w-11 z-50 pointer-events-none">
           {/* تم تطبيق تأثير زجاجي قوي (backdrop-blur-xl) وتقليص العرض إلى w-11 */}
           <nav className="pointer-events-auto h-full w-full bg-[#111111]/40 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-4 overflow-hidden">
-            
+
             {/* Water Bubble (الفقاعة المنزلقة عمودياً) */}
-            <div 
+            <div
               className="absolute inset-x-0 flex items-center justify-center pointer-events-none transition-transform duration-500"
               style={{
                 height: 'calc((100% - 32px) / 5)', // يقسم الارتفاع المتاح بدقة على 5 عناصر
@@ -262,9 +259,8 @@ export default function Portfolio() {
                   <a
                     key={section}
                     href={`#${section}`}
-                    className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${
-                      isActive ? 'text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]' : 'text-gray-400 hover:text-gray-200'
-                    }`}
+                    className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${isActive ? 'text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]' : 'text-gray-400 hover:text-gray-200'
+                      }`}
                   >
                     {icons[idx]}
                     <span className={`text-[8px] sm:text-[9px] mt-1 font-bold transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
@@ -290,7 +286,7 @@ export default function Portfolio() {
 
           {/* ================= SECTION 1: ABOUT ================= */}
           <section id="about" className="bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
-            
+
             <div className="flex-shrink-0 w-40 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
               <div className="relative w-full aspect-square p-1 md:p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
                 <img
@@ -319,7 +315,7 @@ export default function Portfolio() {
               <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl px-2 lg:px-0">
                 Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination.
               </p>
-              
+
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mb-8">
                 <div className="flex items-center gap-2 bg-[#1a1a1a] border border-gray-800 rounded-lg px-3 py-2 text-xs md:text-sm text-gray-300"><svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg> Riyadh, KSA</div>
                 <a href="mailto:mohamaedaymann1516@gmail.com" className="active:scale-95 transition-transform flex items-center gap-2 bg-[#1a1a1a] border border-gray-800 rounded-lg px-3 py-2 text-xs md:text-sm text-gray-300 hover:border-[#D4AF37]/50"><svg className="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> Email Me</a>
