@@ -118,7 +118,6 @@ export default function Portfolio() {
 
   const sections = ['about', 'skills', 'projects', 'education', 'contact'];
 
-  // مصفوفة عشوائية للجزيئات الذهبية العائمة
   const particles = useRef(
     Array.from({ length: 30 }).map(() => ({
       left: `${Math.random() * 100}%`,
@@ -137,9 +136,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -160,7 +157,7 @@ export default function Portfolio() {
 
   const getNavClass = (sectionId) => {
     const isActive = activeSection === sectionId;
-    return `transition-all duration-300 font-serif whitespace-nowrap cursor-pointer flex flex-col items-center gap-1 ${isActive ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-110" : "text-gray-400 hover:text-gray-200"
+    return `transition-all duration-300 font-serif whitespace-nowrap cursor-pointer flex flex-col items-center gap-1 ${isActive ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-105" : "text-gray-400 hover:text-gray-200"
       }`;
   };
 
@@ -170,11 +167,8 @@ export default function Portfolio() {
     <>
       <CustomStyles />
 
-      {/* ================= PRELOADER شاشة التحميل ================= */}
-      <div
-        className={`fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          }`}
-      >
+      {/* ================= PRELOADER ================= */}
+      <div className={`fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <div className="flex flex-col items-center justify-center gap-10">
           <h1 className="text-[#D4AF37] text-4xl md:text-6xl font-serif font-black tracking-[0.2em] animate-pulse text-center leading-snug drop-shadow-lg uppercase">
             MOHAMED<br />AYMAN
@@ -194,17 +188,12 @@ export default function Portfolio() {
               key={i}
               className="absolute rounded-full bg-[#D4AF37] opacity-0"
               style={{
-                left: particle.left,
-                top: particle.top,
-                width: particle.size,
-                height: particle.size,
-                animation: `floatParticle ${particle.duration} linear infinite`,
-                animationDelay: particle.delay,
+                left: particle.left, top: particle.top, width: particle.size, height: particle.size,
+                animation: `floatParticle ${particle.duration} linear infinite`, animationDelay: particle.delay,
                 boxShadow: '0 0 8px rgba(212,175,55,0.6)'
               }}
             />
           ))}
-
           <div className="absolute top-[15%] left-[-2%] text-[12vw] font-black text-white/[0.015] whitespace-nowrap select-none tracking-tighter" style={{ transform: `translateY(${scrollY * 0.15}px)` }}>
             CIVIL ENGINEER
           </div>
@@ -214,8 +203,9 @@ export default function Portfolio() {
         </div>
 
         {/* ================= Navbar العلوي (اللابتوب فقط) ================= */}
-        <div className="hidden md:flex fixed w-full top-6 z-50 justify-center px-2 pointer-events-none">
-          <nav className="pointer-events-auto bg-[#111111]/90 backdrop-blur-2xl border border-white/10 rounded-full px-8 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex justify-center items-center gap-8 w-fit">
+        {/* تم تصغير الـ padding الداخلي والعلوي ليصبح أنحف وأكثر أناقة (px-6 py-2.5 بدلاً من px-8 py-4) */}
+        <div className="hidden md:flex fixed w-full top-5 z-50 justify-center px-2 pointer-events-none">
+          <nav className="pointer-events-auto bg-[#111111]/85 backdrop-blur-xl border border-white/10 rounded-full px-6 py-2.5 shadow-2xl flex justify-center items-center gap-6 w-fit text-sm">
             <a href="#about" className={getNavClass('about')}>About</a>
             <a href="#skills" className={getNavClass('skills')}>Skills</a>
             <a href="#projects" className={getNavClass('projects')}>Projects</a>
@@ -224,46 +214,43 @@ export default function Portfolio() {
           </nav>
         </div>
 
-        {/* ================= Bubble Nav (القائمة العمودية الجانبية للموبايل) ================= */}
-        <div className="md:hidden fixed left-1 sm:left-2 top-1/2 -translate-y-1/2 h-[75vh] w-11 z-50 pointer-events-none">
-          {/* تم تطبيق تأثير زجاجي قوي (backdrop-blur-xl) وتقليص العرض إلى w-11 */}
-          <nav className="pointer-events-auto h-full w-full bg-[#111111]/40 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-4 overflow-hidden">
+        {/* ================= Bubble Nav (القائمة العمودية للموبايل) ================= */}
+        {/* تم تغيير الارتفاع من 75vh ليكون حجم ثابت وأنيق (h-[320px]) وتصغير العرض لـ 44px */}
+        <div className="md:hidden fixed left-2 sm:left-3 top-1/2 -translate-y-1/2 h-[320px] w-[44px] z-50 pointer-events-none">
+          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-3 overflow-hidden">
 
             {/* Water Bubble (الفقاعة المنزلقة عمودياً) */}
+            {/* معادلة الحركة مضبوطة 100% لتناسب الطول الجديد والـ Padding */}
             <div
               className="absolute inset-x-0 flex items-center justify-center pointer-events-none transition-transform duration-500"
               style={{
-                height: 'calc((100% - 32px) / 5)', // يقسم الارتفاع المتاح بدقة على 5 عناصر
+                height: 'calc((100% - 24px) / 5)', // 24px هو مجموع مسافات ال py-3
                 transform: `translateY(${Math.max(0, sections.indexOf(activeSection)) * 100}%)`,
-                top: '16px', // يتماشى مع py-4 (16px)
+                top: '12px', // متطابق مع py-3
                 transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             >
-              {/* تصغير حجم الفقاعة لتناسب القائمة النحيفة */}
-              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-tr from-[#D4AF37]/30 to-transparent border border-[#D4AF37]/60 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)] backdrop-blur-sm"></div>
+              <div className="w-8 h-8 bg-gradient-to-tr from-[#D4AF37]/40 to-transparent border border-[#D4AF37]/60 rounded-full shadow-[0_0_12px_rgba(212,175,55,0.4)] backdrop-blur-md"></div>
             </div>
 
             {/* Icons */}
             <div className="w-full h-full flex flex-col justify-between items-center z-10 relative">
               {sections.map((section, idx) => {
                 const icons = [
-                  <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
-                  <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
-                  <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2.28a2 2 0 01.948.684l.94 1.41a2 2 0 001.037.82l.965.321A2 2 0 0113 8h7a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" /></svg>,
-                  <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>,
-                  <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2.28a2 2 0 01.948.684l.94 1.41a2 2 0 001.037.82l.965.321A2 2 0 0113 8h7a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 ];
                 const labels = ['About', 'Skills', 'Projects', 'Edu', 'Contact'];
                 const isActive = activeSection === section;
                 return (
-                  <a
-                    key={section}
-                    href={`#${section}`}
-                    className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${isActive ? 'text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]' : 'text-gray-400 hover:text-gray-200'
-                      }`}
+                  <a key={section} href={`#${section}`}
+                    className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${isActive ? 'text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]' : 'text-gray-400 hover:text-gray-200'}`}
                   >
                     {icons[idx]}
-                    <span className={`text-[8px] sm:text-[9px] mt-1 font-bold transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
+                    <span className={`text-[8px] mt-1 font-bold transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
                       {labels[idx]}
                     </span>
                   </a>
@@ -280,9 +267,9 @@ export default function Portfolio() {
           </svg>
         </a>
 
-        {/* ================= تعديل المسافات الجانبية للتوسيط 100% ================= */}
-        {/* تم تغيير px-4 (أو pl-20) إلى px-11 (44px) لتتناسب تماماً مع عرض القائمة الجانبية (44px) ليكون المحتوى في منتصف الشاشة فعلياً */}
-        <main className="pt-8 md:pt-32 px-11 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12">
+        {/* ================= تعديل المسافات الجانبية للتوسيط ================= */}
+        {/* تم تعديل Padding الموبايل إلى pl-[60px] pr-[16px] (لتفادي القائمة الجانبية وإعطاء المساحة القصوى للمحتوى يميناً) */}
+        <main className="pt-8 md:pt-32 pl-[60px] pr-4 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12">
 
           {/* ================= SECTION 1: ABOUT ================= */}
           <section id="about" className="bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
