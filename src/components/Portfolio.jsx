@@ -17,7 +17,7 @@ const FadeUp = ({ children, delay = 0 }) => {
       },
       { rootMargin: "0px 0px -10% 0px" } // يبدأ الظهور عندما يدخل العنصر 10% من الشاشة
     );
-    
+
     if (domRef.current) observer.observe(domRef.current);
     return () => {
       if (domRef.current) observer.unobserve(domRef.current);
@@ -27,9 +27,8 @@ const FadeUp = ({ children, delay = 0 }) => {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-[800ms] ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
+      className={`transition-all duration-[800ms] ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -50,7 +49,7 @@ export default function Portfolio() {
           }
         });
       },
-      { rootMargin: "-20% 0px -70% 0px" } 
+      { rootMargin: "-20% 0px -70% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -59,18 +58,17 @@ export default function Portfolio() {
 
   const getNavClass = (sectionId) => {
     const isActive = activeSection === sectionId;
-    return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${
-      isActive 
-        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]" 
+    return `transition-all duration-300 font-serif text-[11px] sm:text-xs md:text-base tracking-wider md:tracking-widest whitespace-nowrap cursor-pointer ${isActive
+        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]"
         : "text-gray-400 hover:text-gray-200"
-    }`;
+      }`;
   };
 
   const sectionHeaderClass = "flex items-center justify-center md:justify-start gap-3 mb-8 border border-[#D4AF37]/30 bg-gradient-to-r from-[#0a0a0a] via-[#D4AF37]/15 to-[#0a0a0a] rounded-2xl px-6 py-3 w-fit mx-auto md:mx-0 shadow-[0_4px_20px_rgba(212,175,55,0.15)]";
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
-      
+
       {/* Floating Pill Navbar */}
       <div className="fixed w-full top-4 md:top-6 z-50 flex justify-center px-2 pointer-events-none">
         <nav className="pointer-events-auto bg-[#111111]/90 backdrop-blur-2xl border border-white/10 rounded-full px-4 py-3 md:px-8 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex flex-nowrap justify-center items-center gap-3 sm:gap-5 md:gap-8 w-fit max-w-full">
@@ -83,40 +81,43 @@ export default function Portfolio() {
       </div>
 
       <main className="pt-20 md:pt-28 px-4 md:px-8 max-w-7xl mx-auto space-y-8 md:space-y-12">
-        
+
         {/* ================= SECTION 1: ABOUT (يظهر فوراً بدون FadeUp) ================= */}
         <section id="about" className="bg-[#111111] border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16">
-          
+
           <div className="flex-shrink-0 w-36 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0 animate-[fadeIn_1s_ease-out]">
             <div className="relative w-full aspect-square p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
-              <img 
-                src="/mohamed.png" 
-                alt="Eng Mohamed Ayman" 
-                className="w-full h-full object-cover rounded-full"
+              <img
+                src="/mohamed.png"
+                alt="Eng Mohamed Ayman"
+                className="w-full h-full object-contain rounded-full"
                 onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://via.placeholder.com/400x400/131313/D4AF37?text=Eng+Mohamed";
                 }}
               />
+
             </div>
+
           </div>
 
           <div className="flex-1 w-full order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0 animate-[fadeIn_1s_ease-out]">
-            
+
             <h1 className="text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
               Eng <span className="text-[#D4AF37]">MOHAMED AYMAN</span>
             </h1>
-            
+
             <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 mb-6 shadow-lg shadow-[#D4AF37]/5 w-fit mx-auto lg:mx-0">
               <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug">
                 <span className="block text-lg md:text-2xl mb-1">Senior Civil Engineer</span>
                 <span className="block text-gray-300 font-medium text-xs md:text-sm">(Technical Office / BIM)</span>
               </h2>
             </div>
-            
+
             <p className="text-gray-400 text-sm md:text-lg leading-relaxed mb-8 max-w-2xl px-2 lg:px-0">
-              Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution. 
-              Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination. 
+              Civil Engineer specializing in Technical Office Engineering, Structural BIM, and precise Site Execution.
+              Focused on delivering high-quality projects, precise 3D modeling, and seamless interdisciplinary coordination.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mb-8">
@@ -139,10 +140,10 @@ export default function Portfolio() {
                 View Projects
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </a>
-              
+
               <a href="https://www.linkedin.com/in/mohamed-ayman-27966724a/" target="_blank" rel="noreferrer" className="bg-[#1a1a1a] hover:bg-[#222] text-[#D4AF37] w-11 h-11 md:w-12 md:h-12 rounded-lg flex items-center justify-center border border-gray-800 hover:border-[#D4AF37]/50 transition-all flex-shrink-0">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
             </div>
@@ -160,7 +161,7 @@ export default function Portfolio() {
             </div>
             <p className="text-gray-400 mb-8 text-center md:text-left text-sm md:text-base">Tools, competencies, and languages I specialize in.</p>
           </FadeUp>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <FadeUp delay={100}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 hover:border-[#D4AF37]/30 transition-all h-full">
@@ -214,18 +215,18 @@ export default function Portfolio() {
               <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Featured Projects</h2>
             </div>
           </FadeUp>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            
+
             <FadeUp delay={100}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group h-full">
                 <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                  <img 
-                    src="/newgiza.jpg" 
-                    alt="NewGiza" 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src="/newgiza.jpg"
+                    alt="NewGiza"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.onerror = null; 
+                      e.target.onerror = null;
                       e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=NewGiza+Project";
                     }}
                   />
@@ -243,16 +244,16 @@ export default function Portfolio() {
                 </div>
               </div>
             </FadeUp>
-            
+
             <FadeUp delay={200}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group h-full">
                 <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                  <img 
-                    src="/bim-project.jpg" 
-                    alt="BIM Coordination" 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src="/bim-project.jpg"
+                    alt="BIM Coordination"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.onerror = null; 
+                      e.target.onerror = null;
                       e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=BIM+Coordination";
                     }}
                   />
@@ -270,16 +271,16 @@ export default function Portfolio() {
                 </div>
               </div>
             </FadeUp>
-            
+
             <FadeUp delay={100}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group h-full">
                 <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                  <img 
-                    src="/hotel-project.jpg" 
-                    alt="Hotel" 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src="/hotel-project.jpg"
+                    alt="Hotel"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.onerror = null; 
+                      e.target.onerror = null;
                       e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=EL-HASSOUN+HOTEL";
                     }}
                   />
@@ -301,12 +302,12 @@ export default function Portfolio() {
             <FadeUp delay={200}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl overflow-hidden hover:border-[#D4AF37]/40 transition-all flex flex-col group h-full">
                 <div className="h-32 sm:h-40 w-full overflow-hidden border-b border-gray-800 bg-[#151515]">
-                  <img 
-                    src="/palm-hills.jpg" 
-                    alt="Palm Hills" 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src="/palm-hills.jpg"
+                    alt="Palm Hills"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.target.onerror = null; 
+                      e.target.onerror = null;
                       e.target.src = "https://placehold.co/600x400/131313/D4AF37?text=PALM+HILLS";
                     }}
                   />
@@ -336,7 +337,7 @@ export default function Portfolio() {
               <h2 className="text-xl md:text-2xl lg:text-3xl text-white font-bold tracking-wide">Education & Training</h2>
             </div>
           </FadeUp>
-          
+
           <FadeUp delay={100}>
             <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 md:p-6 mb-8 border-l-4 border-l-[#D4AF37]">
               <h3 className="text-xl text-white font-bold mb-1">Bachelor of Civil Engineering</h3>
@@ -354,7 +355,7 @@ export default function Portfolio() {
               <h3 className="text-lg md:text-xl text-white font-bold">Certificates & Courses</h3>
             </div>
           </FadeUp>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <FadeUp delay={300}>
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-5 hover:border-[#D4AF37]/40 transition-colors h-full">
