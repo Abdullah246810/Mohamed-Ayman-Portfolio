@@ -518,7 +518,7 @@ export default function Portfolio() {
               <div className="relative w-full aspect-square p-1 md:p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a]">
 
                 <img
-                  src="/public/mohamed1.jpeg"
+                  src="/mohamed1.jpeg"
                   alt="Eng Mohamed Ayman"
                   className="w-full h-full object-cover object-top rounded-full transition-transform"
                   onError={(e) => {
