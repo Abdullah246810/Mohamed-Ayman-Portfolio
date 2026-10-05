@@ -146,7 +146,8 @@ const TiltCard = ({ children, className = "" }) => {
 // ================= المكون الرئيسي (Portfolio) =================
 export default function Portfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('about');
   const [scrollY, setScrollY] = useState(0);
 
   const sections = [
@@ -168,13 +169,27 @@ export default function Portfolio() {
   ).current;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 2500);
+    const duration = 2500;
+    const startTime = Date.now();
 
-    return () => clearTimeout(timer);
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(
+        Math.floor((elapsed / duration) * 100),
+        100
+      );
+
+      setLoadingProgress(progress);
+
+      if (progress >= 100) {
+        clearInterval(timer);
+        setIsLoaded(true);
+      }
+    }, 25);
+
+    return () => clearInterval(timer);
   }, []);
-
+  
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
 
@@ -300,26 +315,78 @@ export default function Portfolio() {
             <br />
             AYMAN
           </h1>
+          {/* ================= PREMIUM LOADING BAR ================= */}
 
-          {/* Loading Bar */}
+          {/* Loading Percentage */}
           <div
-            className="w-48 md:w-64 h-1
-      bg-white/10 rounded-full overflow-hidden
-      border border-white/5 shadow-inner"
+            className="
+    text-[#f5f7f2]
+    text-sm md:text-base
+    font-bold
+    tracking-[0.25em]
+    mb-2
+    drop-shadow-[0_0_8px_rgba(245,247,242,0.2)]
+  "
           >
+            LOADING {loadingProgress}%
+          </div>
+
+          {/* Progress Bar */}
+          <div
+            className="
+    relative
+    w-56 md:w-72
+    h-8 md:h-9
+    rounded-full
+    bg-[#eeeeee]
+    border-[3px] border-[#cfcfcf]
+    shadow-[0_0_0_2px_#111111,0_0_18px_rgba(245,247,242,0.12)]
+    overflow-hidden
+    p-[3px]
+  "
+          >
+            {/* Progress */}
             <div
-              className="h-full
-        bg-gradient-to-r from-[#8a6d1d] via-[#D4AF37] to-[#f5f7f2]"
+              className="
+      h-full
+      rounded-full
+      bg-gradient-to-r
+      from-[#8a6d1d]
+      via-[#D4AF37]
+      to-[#f5f7f2]
+      shadow-[0_0_12px_rgba(212,175,55,0.45)]
+      relative
+      overflow-hidden
+    "
               style={{
-                animation: "loadingBar 2.5s ease-in-out forwards",
+                width: `${loadingProgress}%`,
+                transition: "width 25ms linear",
               }}
-            />
+            >
+              {/* Shine */}
+              <div
+                className="
+        absolute
+        inset-0
+        bg-gradient-to-r
+        from-transparent
+        via-white/60
+        to-transparent
+        -skew-x-12
+      "
+              />
+            </div>
           </div>
 
           {/* Portfolio */}
           <span
-            className="text-[9px] md:text-[10px]
-      tracking-[0.4em] text-[#f5f7f2]/45 uppercase"
+            className="
+    text-[9px] md:text-[10px]
+    tracking-[0.4em]
+    text-[#f5f7f2]/45
+    uppercase
+    mt-1
+  "
           >
             Portfolio
           </span>
@@ -328,6 +395,7 @@ export default function Portfolio() {
       </div>
 
       <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black relative overflow-x-hidden">
+
         {/* ================= خلفية Parallax والجزيئات الذهبية ================= */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden flex flex-col justify-center">
 
@@ -342,14 +410,20 @@ export default function Portfolio() {
                 height: particle.size,
                 animation: `floatParticle ${particle.duration} linear infinite`,
                 animationDelay: particle.delay,
-                boxShadow:
-                  "0 0 8px rgba(212,175,55,0.6)",
+                boxShadow: "0 0 8px rgba(212,175,55,0.6)",
               }}
             />
           ))}
 
           <div
-            className="absolute top-[15%] left-[-2%] text-[12vw] font-black text-white/[0.015] whitespace-nowrap select-none tracking-tighter"
+            className="
+        absolute top-[15%] left-[-2%]
+        text-[12vw] font-black
+        text-white/[0.015]
+        whitespace-nowrap
+        select-none
+        tracking-tighter
+      "
             style={{
               transform: `translateY(${scrollY * 0.15}px)`,
             }}
@@ -358,15 +432,22 @@ export default function Portfolio() {
           </div>
 
           <div
-            className="absolute top-[60%] right-[-5%] text-[10vw] font-black text-[#D4AF37]/[0.015] whitespace-nowrap select-none tracking-tighter"
+            className="
+        absolute top-[60%] right-[-5%]
+        text-[10vw] font-black
+        text-[#D4AF37]/[0.015]
+        whitespace-nowrap
+        select-none
+        tracking-tighter
+      "
             style={{
               transform: `translateY(${scrollY * -0.1}px)`,
             }}
           >
             STRUCTURAL BIM
           </div>
-        </div>
 
+        </div>
         {/* ================= Navbar العلوي (اللابتوب فقط) ================= */}
         <div className="hidden md:flex fixed w-full top-5 z-50 justify-center px-2 pointer-events-none">
           <nav className="pointer-events-auto bg-[#111111]/85 backdrop-blur-xl border border-white/10 rounded-full px-6 py-2.5 shadow-2xl flex justify-center items-center gap-6 w-fit text-sm">
