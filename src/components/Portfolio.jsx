@@ -230,7 +230,7 @@ export default function Portfolio() {
       {/* ================= PRELOADER ================= */}
       <div
         className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden
-        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#f8f9fa] via-[#D4AF37]/30 to-[#151515]
+        bg-[#151515] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#f8f9fa] via-[#D4AF37]/30 to-[#151515]
         transition-opacity duration-1000 ease-in-out
         ${isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
