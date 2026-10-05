@@ -761,8 +761,20 @@ export default function Portfolio() {
                 </a>
               </div>
 
-              <div className="flex justify-center lg:justify-start gap-3 w-full lg:w-auto px-4 lg:px-0">
+              {/* ================= BUTTONS ================= */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 w-full lg:w-auto px-4 lg:px-0">
 
+                {/* زر تحميل السيرة الذاتية */}
+                <a
+                  href="/Mohamed_Ayman_CV.pdf"
+                  download="Eng_Mohamed_Ayman_CV.pdf"
+                  className="active:scale-95 bg-transparent border-2 border-[#D4AF37] hover:bg-[#D4AF37]/10 text-[#D4AF37] px-6 py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 flex-1 lg:flex-none text-sm md:text-base"
+                >
+                  Download CV
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                </a>
+
+                {/* زر المشاريع */}
                 <a
                   href="#projects"
                   className="active:scale-95 bg-[#D4AF37] hover:bg-[#b5952f] text-black px-6 py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 flex-1 lg:flex-none text-sm md:text-base"
@@ -784,6 +796,7 @@ export default function Portfolio() {
                   </svg>
                 </a>
 
+                {/* زر لينكدإن */}
                 <a
                   href="https://www.linkedin.com/in/mohamed-ayman-27966724a/"
                   target="_blank"
@@ -802,7 +815,6 @@ export default function Portfolio() {
               </div>
             </div>
           </section>
-
           {/* ================= SECTION 2: SKILLS ================= */}
           <section
             id="skills"
