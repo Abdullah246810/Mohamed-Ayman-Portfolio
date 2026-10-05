@@ -475,7 +475,7 @@ export default function Portfolio() {
 
         {/* ================= Bubble Nav (القائمة العمودية للموبايل) ================= */}
         <div className="md:hidden fixed left-2 sm:left-3 top-1/2 -translate-y-1/2 h-[320px] w-[44px] z-50 pointer-events-none">
-          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-3 overflow-hidden">
+          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-3 overflow-hidden ">
 
             {/* 3D Cube Bubble */}
             <div
@@ -489,16 +489,17 @@ export default function Portfolio() {
             >
               <div
                 className="
-    w-8 h-8
+    w-10 h-10
     bg-gradient-to-br
-    from-[#fffdf5]/90
-    via-[#f3efe2]/75
-    to-[#c9bfa5]/55
-    border border-[#f6e7b0]/80
+    from-[#f6e7b0]/90
+    via-[#c9bfa5]/75
+    to-[#000]/55
+    border border-[#fffdf5]/80
     rounded-xl
     shadow-[0_0_18px_rgba(255,245,210,0.22),inset_2px_2px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_6px_rgba(80,70,45,0.22)]
     backdrop-blur-md
     transition-all duration-500
+
   "
               ></div>
             </div>
