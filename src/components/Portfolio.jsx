@@ -372,13 +372,17 @@ export default function Portfolio() {
             >
               <div
                 className="
-          w-8 h-8
-          bg-gradient-to-br from-[#ffffff]/90 via-[#eaf8ff]/65 to-[#b8d4e3]/45
-          border border-[#f2fbff]/80
-          shadow-[0_0_12px_rgba(220,245,255,0.35),inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(100,140,160,0.25)]   backdrop-blur-md
-          rotate-0
-          transition-all duration-500
-        "
+    w-8 h-8
+    bg-gradient-to-br
+    from-[#fffdf5]/90
+    via-[#f3efe2]/75
+    to-[#c9bfa5]/55
+    border border-[#f6e7b0]/80
+    rounded-xl
+    shadow-[0_0_18px_rgba(255,245,210,0.22),inset_2px_2px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_6px_rgba(80,70,45,0.22)]
+    backdrop-blur-md
+    transition-all duration-500
+  "
               ></div>
             </div>
 
