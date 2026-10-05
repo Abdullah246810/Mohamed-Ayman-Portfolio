@@ -230,25 +230,57 @@ export default function Portfolio() {
       {/* ================= PRELOADER ================= */}
       <div
         className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden
-        bg-[#151515] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#f8f9fa] via-[#D4AF37]/30 to-[#151515]
-        transition-opacity duration-1000 ease-in-out
-        ${isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+  bg-[#0b0b0b]
+  transition-opacity duration-1000 ease-in-out
+  ${isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
-        <div className="absolute w-[420px] h-[420px] rounded-full bg-[#D4AF37]/10 blur-[100px] pointer-events-none" />
+        {/* ❄️ Snow White Ambient Glow */}
+        <div
+          className="absolute w-[420px] h-[420px] rounded-full
+    bg-[#f5f7f2]/[0.06] blur-[100px] pointer-events-none"
+        />
 
-        <div className="absolute w-[300px] h-[300px] md:w-[420px] md:h-[420px] rounded-full border border-[#D4AF37]/10 animate-pulse" />
+        {/* 🥇 Golden Ambient Glow */}
+        <div
+          className="absolute w-[360px] h-[360px] rounded-full
+    bg-[#D4AF37]/[0.12] blur-[100px] pointer-events-none"
+        />
 
-        <div className="absolute w-[230px] h-[230px] md:w-[340px] md:h-[340px] rounded-full border border-white/5" />
+        {/* Outer Snow Ring */}
+        <div
+          className="absolute w-[300px] h-[300px] md:w-[430px] md:h-[430px]
+    rounded-full border border-[#f5f7f2]/10"
+        />
 
+        {/* Golden Ring */}
+        <div
+          className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px]
+    rounded-full border border-[#D4AF37]/20 animate-pulse"
+        />
+
+        {/* Inner Snow Ring */}
+        <div
+          className="absolute w-[200px] h-[200px] md:w-[280px] md:h-[280px]
+    rounded-full border border-white/5"
+        />
+
+        {/* ================= CONTENT ================= */}
         <div className="relative z-10 flex flex-col items-center justify-center gap-7">
+
           {/* Profile Image */}
           <div className="relative">
-            <div className="absolute inset-[-8px] rounded-full border border-[#D4AF37]/30 animate-pulse" />
 
+            {/* Golden Outer Glow */}
+            <div
+              className="absolute inset-[-8px] rounded-full
+        border border-[#D4AF37]/30 animate-pulse"
+            />
+
+            {/* Image Frame */}
             <div
               className="w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px]
-              bg-gradient-to-tr from-[#D4AF37] via-[#fff3b0] to-[#8f741f]
-              shadow-[0_0_35px_rgba(212,175,55,0.35)]"
+        bg-gradient-to-tr from-[#8a6d1d] via-[#f5f7f2] to-[#D4AF37]
+        shadow-[0_0_30px_rgba(245,247,242,0.12),0_0_40px_rgba(212,175,55,0.18)]"
             >
               <img
                 src="/mohamed.png"
@@ -260,9 +292,9 @@ export default function Portfolio() {
 
           {/* Name */}
           <h1
-            className="text-[#D4AF37] text-3xl md:text-5xl font-serif font-black
-            tracking-[0.2em] animate-pulse text-center leading-snug
-            drop-shadow-[0_0_15px_rgba(212,175,55,0.35)] uppercase"
+            className="text-[#f5f7f2] text-3xl md:text-5xl font-serif font-black
+      tracking-[0.2em] animate-pulse text-center leading-snug
+      drop-shadow-[0_0_15px_rgba(245,247,242,0.25)] uppercase"
           >
             MOHAMED
             <br />
@@ -271,26 +303,31 @@ export default function Portfolio() {
 
           {/* Loading Bar */}
           <div
-            className="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden
-            border border-white/5 shadow-inner"
+            className="w-48 md:w-64 h-1
+      bg-white/10 rounded-full overflow-hidden
+      border border-white/5 shadow-inner"
           >
             <div
-              className="h-full bg-gradient-to-r from-[#8f741f] via-[#D4AF37] to-[#fff3b0]"
+              className="h-full
+        bg-gradient-to-r from-[#8a6d1d] via-[#D4AF37] to-[#f5f7f2]"
               style={{
-                animation:
-                  "loadingBar 2.5s ease-in-out forwards",
+                animation: "loadingBar 2.5s ease-in-out forwards",
               }}
             />
           </div>
 
-          <span className="text-[9px] md:text-[10px] tracking-[0.4em] text-gray-500 uppercase">
+          {/* Portfolio */}
+          <span
+            className="text-[9px] md:text-[10px]
+      tracking-[0.4em] text-[#f5f7f2]/45 uppercase"
+          >
             Portfolio
           </span>
+
         </div>
       </div>
 
       <div className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-[#D4AF37] selection:text-black relative overflow-x-hidden">
-
         {/* ================= خلفية Parallax والجزيئات الذهبية ================= */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden flex flex-col justify-center">
 
