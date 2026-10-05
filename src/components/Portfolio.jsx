@@ -489,7 +489,7 @@ export default function Portfolio() {
             >
               <div
                 className="
-    w-10 h-10
+    w-11 h-11
     bg-gradient-to-br
     from-[#f6e7b0]/90
     via-[#c9bfa5]/75
