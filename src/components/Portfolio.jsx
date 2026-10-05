@@ -86,8 +86,8 @@ const FadeUp = ({ children, delay = 0 }) => {
     <div
       ref={domRef}
       className={`transition-all duration-[800ms] ease-out ${isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-12"
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-12"
         }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -215,8 +215,8 @@ export default function Portfolio() {
     const isActive = activeSection === sectionId;
 
     return `transition-all duration-300 font-serif whitespace-nowrap cursor-pointer flex flex-col items-center gap-1 ${isActive
-        ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-105"
-        : "text-gray-400 hover:text-gray-200"
+      ? "text-[#D4AF37] font-bold drop-shadow-[0_0_8px_rgba(212,175,55,0.7)] scale-105"
+      : "text-gray-400 hover:text-gray-200"
       }`;
   };
 
@@ -373,11 +373,9 @@ export default function Portfolio() {
               <div
                 className="
           w-8 h-8
-          bg-gradient-to-br from-[#fff] via-[gold] to-[#8a6d1d]
-          border border-[#D4AF37]
-          rounded-md
-          shadow-[0_0_12px_rgba(212,175,55,0.55),inset_2px_2px_5px_rgba(255,255,255,0.45),inset_-2px_-2px_5px_rgba(0,0,0,0.35)]
-          backdrop-blur-md
+          bg-gradient-to-br from-[#ffffff]/90 via-[#eaf8ff]/65 to-[#b8d4e3]/45
+          border border-[#f2fbff]/80
+          shadow-[0_0_12px_rgba(220,245,255,0.35),inset_2px_2px_5px_rgba(255,255,255,0.8),inset_-2px_-2px_5px_rgba(100,140,160,0.25)]   backdrop-blur-md
           rotate-0
           transition-all duration-500
         "
@@ -477,16 +475,16 @@ export default function Portfolio() {
                     key={section}
                     href={`#${section}`}
                     className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${isActive
-                        ? "text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]"
-                        : "text-gray-400 hover:text-gray-200"
+                      ? "text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]"
+                      : "text-gray-400 hover:text-gray-200"
                       }`}
                   >
                     {icons[idx]}
 
                     <span
                       className={`text-[8px] mt-1 font-bold transition-all duration-300 ${isActive
-                          ? "opacity-100"
-                          : "opacity-0 h-0 overflow-hidden"
+                        ? "opacity-100"
+                        : "opacity-0 h-0 overflow-hidden"
                         }`}
                     >
                       {labels[idx]}
