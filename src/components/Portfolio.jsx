@@ -230,7 +230,7 @@ export default function Portfolio() {
       {/* ================= PRELOADER ================= */}
       <div
         className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden
-        bg-[radial-gradient(circle_at_center,#1c1a12_0%,#0d0d0c_35%,#050505_75%)]
+        bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#f8f9fa] via-[#D4AF37]/30 to-[#151515]
         transition-opacity duration-1000 ease-in-out
         ${isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
@@ -241,7 +241,6 @@ export default function Portfolio() {
         <div className="absolute w-[230px] h-[230px] md:w-[340px] md:h-[340px] rounded-full border border-white/5" />
 
         <div className="relative z-10 flex flex-col items-center justify-center gap-7">
-
           {/* Profile Image */}
           <div className="relative">
             <div className="absolute inset-[-8px] rounded-full border border-[#D4AF37]/30 animate-pulse" />
