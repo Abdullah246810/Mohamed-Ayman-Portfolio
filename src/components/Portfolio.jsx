@@ -373,7 +373,7 @@ export default function Portfolio() {
               <div
                 className="
           w-8 h-8
-          bg-gradient-to-br from-[#fff8cf] via-[#D4AF37] to-[#8a6d1d]
+          bg-gradient-to-br from-[#fff] via-[gold] to-[#8a6d1d]
           border border-[#D4AF37]
           rounded-md
           shadow-[0_0_12px_rgba(212,175,55,0.55),inset_2px_2px_5px_rgba(255,255,255,0.45),inset_-2px_-2px_5px_rgba(0,0,0,0.35)]
