@@ -551,7 +551,7 @@ export default function Portfolio() {
           >
 
             <div className="flex-shrink-0 w-40 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
-              <div className="relative w-full aspect-square p-1 md:p-1.5 border-2 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a] overflow-hidden">
+              <div className="relative w-full aspect-square p-1 md:p-1.5 border-4 border-[#D4AF37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-[#1a1a1a] overflow-hidden">
 
                 <img
                   src="/mohamed1.jpeg"
