@@ -637,7 +637,7 @@ export default function Portfolio() {
                 <img
                   src="/mohamed1.jpeg"
                   alt="Eng Mohamed Ayman"
-                  className="w-full h-28 lg:h-full object-cover object-top rounded-full transition-transform scale-[2.8]"
+                  className="w-full h-28 lg:h-45 object-cover object-top rounded-full transition-transform scale-[2.8]"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
