@@ -492,7 +492,7 @@ export default function Portfolio() {
     w-11 h-11
     bg-gradient-to-br
     from-[#f6e7b0]/90
-    via-[#c9bfa5]/75
+    via-[#666]/75
     to-[#000]/55
     border border-[#fffdf5]/80
     rounded-xl
