@@ -665,7 +665,7 @@ export default function Portfolio() {
                 <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#1a1a1a]/50 border border-[#D4AF37]/40 rounded-xl px-5 py-3 shadow-lg shadow-[#D4AF37]/5 w-full max-w-[360px] mx-auto lg:mx-0">
                   <h2 className="text-[#D4AF37] text-base md:text-xl font-bold tracking-wide leading-snug text-center">
                     <span className="block text-lg md:text-2xl mb-1">
-                      Senior Civil Engineer
+                      Project Engineer
                     </span>
 
                     <span className="block text-gray-300 font-medium text-xs md:text-sm">
