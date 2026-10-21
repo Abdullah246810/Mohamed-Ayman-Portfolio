@@ -3,6 +3,14 @@ import React, { useState, useEffect, useRef } from 'react';
 // ================= CSS أنماط مخصصة =================
 const CustomStyles = () => (
   <style>{`
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
     /* Custom Golden Scrollbar (Desktop only) */
     @media (min-width: 768px) {
       ::-webkit-scrollbar {
@@ -448,165 +456,49 @@ export default function Portfolio() {
           </div>
 
         </div>
-        {/* ================= Navbar العلوي (اللابتوب فقط) ================= */}
-        <div className="hidden md:flex fixed w-full top-5 z-50 justify-center px-2 pointer-events-none">
-          <nav className="pointer-events-auto bg-[#111111]/85 backdrop-blur-xl border border-white/10 rounded-full px-6 py-2.5 shadow-2xl flex justify-center items-center gap-6 w-fit text-sm">
-            <a href="#about" className={getNavClass("about")}>
-              About
-            </a>
-
-            <a href="#skills" className={getNavClass("skills")}>
-              Skills
-            </a>
-
-            <a href="#projects" className={getNavClass("projects")}>
-              Projects
-            </a>
-
-            <a href="#education" className={getNavClass("education")}>
-              Education
-            </a>
-
-            <a href="#contact" className={getNavClass("contact")}>
-              Contact
-            </a>
-          </nav>
-        </div>
-
-        {/* ================= Bubble Nav (القائمة العمودية للموبايل) ================= */}
-        <div className="md:hidden fixed left-2 sm:left-3 top-1/2 -translate-y-1/2 h-[320px] w-[44px] z-50 pointer-events-none">
-          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-col items-center py-3 overflow-hidden ">
+        {/* ================= Horizontal Bubble Nav (موبايل) ================= */}
+        <div className="md:hidden fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[420px] h-[60px] z-50 pointer-events-none">
+          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-row items-center px-3 overflow-hidden">
 
             {/* 3D Cube Bubble */}
             <div
-              className="absolute inset-x-0 flex items-center justify-center pointer-events-none transition-transform duration-500"
+              className="absolute inset-y-0 flex items-center justify-center pointer-events-none transition-transform duration-500"
               style={{
-                height: 'calc((100% - 24px) / 5)',
-                transform: `translateY(${Math.max(0, sections.indexOf(activeSection)) * 100}%)`,
-                top: '12px',
-                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                width: 'calc((100% - 24px) / 5)',
+                left: '12px',
+                transform: `translateX(${Math.max(0, sections.indexOf(activeSection)) * 100}%)`,
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
-              <div
-                className="
-    w-11 h-11
-    bg-gradient-to-br
-    from-[#f6e7b0]/90
-    via-[#666]/75
-    to-[#000]/55
-    border border-[#fffdf5]/80
-    rounded-xl
-    shadow-[0_0_18px_rgba(255,245,210,0.22),inset_2px_2px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_6px_rgba(80,70,45,0.22)]
-    backdrop-blur-md
-    transition-all duration-500
-
-  "
-              ></div>
+              <div className="w-11 h-11 bg-gradient-to-br from-[#f6e7b0]/90 via-[#666]/75 to-[#000]/55 border border-[#fffdf5]/80 rounded-xl shadow-[0_0_18px_rgba(255,245,210,0.22),inset_2px_2px_6px_rgba(255,255,255,0.9),inset_-3px_-3px_6px_rgba(80,70,45,0.22)] backdrop-blur-md transition-all duration-500" />
             </div>
 
             {/* Icons */}
-            <div className="w-full h-full flex flex-col justify-between items-center z-10 relative">
-
+            <div className="w-full h-full flex flex-row justify-between items-center z-10 relative">
               {sections.map((section, idx) => {
-
                 const icons = [
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>,
-
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>,
-
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6a2 2 0 012-2h2.28a2 2 0 00.948.684l.94 1.41a2 2 0 001.037.82l.965.321A2 2 0 0113 8h7a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"
-                    />
-                  </svg>,
-
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                    />
-                  </svg>,
-
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2.28a2 2 0 00.948.684l.94 1.41a2 2 0 001.037.82l.965.321A2 2 0 0113 8h7a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>,
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
                 ];
 
-                const labels = [
-                  "About",
-                  "Skills",
-                  "Projects",
-                  "Edu",
-                  "Contact",
-                ];
-
-                const isActive =
-                  activeSection === section;
+                const labels = ["About", "Skills", "Projects", "Edu", "Contact"];
+                const isActive = activeSection === section;
 
                 return (
                   <a
                     key={section}
                     href={`#${section}`}
-                    className={`flex-1 w-full flex flex-col justify-center items-center transition-all duration-300 ${isActive
+                    className={`flex-1 h-full flex flex-col justify-center items-center transition-all duration-300 ${isActive
                       ? "text-[#D4AF37] scale-110 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]"
                       : "text-gray-400 hover:text-gray-200"
                       }`}
                   >
                     {icons[idx]}
-
                     <span
-                      className={`text-[8px] mt-1 font-bold transition-all duration-300 ${isActive
-                        ? "opacity-100"
-                        : "opacity-0 h-0 overflow-hidden"
+                      className={`text-[8px] mt-0.5 font-bold transition-all duration-300 ${isActive ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
                         }`}
                     >
                       {labels[idx]}
@@ -618,7 +510,7 @@ export default function Portfolio() {
           </nav>
         </div>
 
-        <main className="pt-8 md:pt-32 pl-[60px] pr-4 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12">
+        <main className="pt-24 md:pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12">
 
           {/* ================= SECTION 1: ABOUT ================= */}
           <section
@@ -662,9 +554,7 @@ export default function Portfolio() {
                       Project Engineer
                     </span>
 
-                    <span className="block text-
-                    
-                    gray-300 font-medium text-xs md:text-sm">
+                    <span className="block text-gray-300 font-medium text-xs md:text-sm">
                       (Ammar Real Estate Development & Investment Company)
                     </span>
                   </h2>
