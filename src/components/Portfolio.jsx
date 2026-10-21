@@ -457,8 +457,8 @@ export default function Portfolio() {
 
         </div>
         {/* ================= Horizontal Bubble Nav (موبايل) ================= */}
-        <div className="md:hidden fixed top-3 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[420px] h-[60px] z-50 pointer-events-none">
-          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-row items-center px-3 overflow-hidden">
+        <div className="md:hidden fixed top-2 left-1/2 -translate-x-1/2 w-[calc(100%-24px)] max-w-[420px] h-[50px] z-50 pointer-events-none">
+          <nav className="pointer-events-auto h-full w-full bg-[#111111]/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] relative flex flex-row items-center px-3 overflow-hidden ">
 
             {/* 3D Cube Bubble */}
             <div
@@ -510,12 +510,12 @@ export default function Portfolio() {
           </nav>
         </div>
 
-        <main className="pt-24 md:pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12">
+        <main className="pt-24 md:pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-10 pb-12 ">
 
           {/* ================= SECTION 1: ABOUT ================= */}
           <section
             id="about"
-            className="bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16"
+            className="bg-[#111111]/80 backdrop-blur-sm -mt-7 border border-white/5 rounded-[2rem] p-5 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-16"
           >
 
             <div className="flex-shrink-0 w-40 sm:w-48 lg:w-64 mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2 mt-4 lg:mt-0">
